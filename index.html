@@ -1,0 +1,2947 @@
+<!DOCTYPE html>
+<html lang="it" class="notranslate" translate="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google" content="notranslate" />
+  <meta name="color-scheme" content="only light" />
+  <meta name="supported-color-schemes" content="light" />
+  <meta name="theme-color" content="#060606" />
+  <title>Molo 2.0 | Pizzeria trattoria a Genova</title>
+  <meta
+    name="description"
+    content="Molo 2.0, pizzeria trattoria a Genova in via del Molo 77/79 rosso: cucina ligure, pizza, pranzo e cena nel cuore del centro storico."
+  />
+  <link rel="preload" as="image" href="hero-01-desktop.png" media="(min-width: 641px)" fetchpriority="high" />
+  <link rel="preload" as="image" href="hero-01-mobile.png" media="(max-width: 640px)" fetchpriority="high" />
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23060606'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='%23d8b45c' stroke-width='5'/%3E%3Cpath d='M20 37c6-9 18-9 24 0' fill='none' stroke='%23fff9f2' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='26' cy='27' r='3' fill='%23d8b45c'/%3E%3Ccircle cx='38' cy='27' r='3' fill='%23d8b45c'/%3E%3C/svg%3E"
+  />
+  <style>
+    :root {
+      --cream: #f7efe4;
+      --ivory: #fff9f2;
+      --paper: rgba(18, 18, 18, 0.86);
+      --ink: #e6d8c7;
+      --sea: #6eb7bc;
+      --foam: #192022;
+      --gold: #d1ad4f;
+      --gold-deep: #a27c26;
+      --gold-light: #ecd486;
+      --accent-rgb: 209, 173, 79;
+      --line: rgba(255, 255, 255, 0.09);
+      --line-strong: rgba(255, 255, 255, 0.18);
+      --shadow: 0 30px 80px rgba(0, 0, 0, 0.42);
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.26);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --max: 1180px;
+      --body-font: "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --display-font: "Didot", "Bodoni 72", "Bodoni MT", "Baskerville", "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+      color-scheme: only light;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body,
+    body * {
+      font-family: var(--body-font) !important;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    .brand-name,
+    .footer-legal-company {
+      font-family: var(--display-font) !important;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      color-scheme: only light;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      color: var(--cream);
+      background:
+        linear-gradient(180deg, rgba(var(--accent-rgb), 0.06) 0%, rgba(0, 0, 0, 0) 22%),
+        linear-gradient(180deg, #020202 0%, #070707 42%, #0d0d0d 100%);
+      overflow-x: hidden;
+      color-scheme: only light;
+      forced-color-adjust: none;
+      background-color: #060606;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    body.booking-modal-open,
+    body.map-open,
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(6, 6, 6, 0.92);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
+    }
+
+    .nav {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      min-width: 0;
+      flex: 0 0 auto;
+    }
+
+    .brand-logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 188px;
+      min-height: 66px;
+      padding: 4px 14px;
+      background: #050505;
+      border-radius: 6px;
+      box-shadow: 0 18px 32px rgba(0, 0, 0, 0.2);
+      line-height: 1;
+      overflow: visible;
+      flex-shrink: 0;
+    }
+
+    .brand-logo-image {
+      display: block;
+      width: 174px;
+      height: 56px;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      flex: 1 1 auto;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0;
+      color: rgba(247, 239, 228, 0.88);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--gold);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 0 0 auto;
+    }
+
+    .lang-switcher {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0;
+      border-radius: 999px;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+    }
+
+    .lang-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: transparent;
+      color: rgba(247, 239, 228, 0.86);
+      border-radius: 999px;
+      padding: 0;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .lang-btn::before {
+      content: attr(data-short);
+      display: block;
+      line-height: 1;
+    }
+
+    .lang-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .lang-btn.active {
+      background: linear-gradient(145deg, var(--gold-light), var(--gold));
+      color: #15120b;
+      border-color: transparent;
+      box-shadow: none;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--cream);
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .menu-toggle svg {
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 78px;
+      left: 12px;
+      right: 12px;
+      z-index: 40;
+      padding: 16px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(12, 12, 12, 0.98), rgba(18, 18, 18, 0.96));
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .mobile-menu.open {
+      display: grid;
+      gap: 8px;
+    }
+
+    .mobile-menu-logo {
+      display: block;
+      width: 168px;
+      height: 64px;
+      margin: 0 auto 8px;
+      object-fit: contain;
+    }
+
+    .mobile-menu a {
+      padding: 14px 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: rgba(247, 239, 228, 0.88);
+    }
+
+    .mobile-menu a:last-child {
+      border-bottom: 0;
+    }
+
+    .btn,
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      border: 0;
+      cursor: pointer;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover,
+    .btn-ghost:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn {
+      color: #15120b;
+      background: linear-gradient(145deg, var(--gold-light), var(--gold) 52%, var(--gold-deep));
+      box-shadow: 0 16px 32px rgba(var(--accent-rgb), 0.18);
+    }
+
+    .btn-ghost {
+      color: var(--cream);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero {
+      position: relative;
+      padding: 22px 0 58px;
+      min-height: calc(100vh - 68px);
+      background: #050505;
+      overflow: hidden;
+    }
+
+    .hero-media {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .hero-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.12) 50%, rgba(0, 0, 0, 0.28) 100%),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.18) 0%, rgba(0, 0, 0, 0) 42%, rgba(0, 0, 0, 0.24) 100%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.16fr) minmax(330px, 400px);
+      gap: 22px;
+      align-items: center;
+      min-height: calc(100vh - 130px);
+    }
+
+    .hero-copy,
+    .booking-card,
+    .panel,
+    .review,
+    .contact-card,
+    .map-card {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius-xl);
+    }
+
+    .hero-copy {
+      position: relative;
+      padding: 40px 30px;
+      min-height: 500px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background:
+        linear-gradient(145deg, rgba(12, 12, 12, 0.04), rgba(8, 8, 8, 0.01)),
+        linear-gradient(120deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0));
+      border-width: 1.5px;
+      border-color: rgba(255, 255, 255, 0.68);
+      box-shadow:
+        0 0 0 2px rgba(255, 255, 255, 0.18),
+        0 16px 34px rgba(0, 0, 0, 0.1);
+    }
+
+    .eyebrow,
+    .section-eyebrow,
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .eyebrow {
+      margin-bottom: 22px;
+      color: var(--gold);
+      background: rgba(var(--accent-rgb), 0.1);
+      border: 1px solid rgba(var(--accent-rgb), 0.18);
+    }
+
+    .hero-copy h1,
+    .section-title h2 {
+      margin: 0;
+      letter-spacing: -0.04em;
+      color: var(--cream);
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.32);
+    }
+
+    .hero-copy h1 {
+      max-width: 100%;
+      font-size: clamp(2.15rem, 3.95vw, 3.62rem);
+      line-height: 0.92;
+      margin-bottom: 14px;
+      text-wrap: balance;
+    }
+
+    .hero-title-line {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .hero-copy p {
+      max-width: 640px;
+      margin: 0;
+      font-size: 0.98rem;
+      line-height: 1.72;
+      color: var(--cream);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.28);
+    }
+
+    .hero-facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-fact {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: rgba(255, 249, 242, 0.92);
+      font-size: 0.84rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .hero-call-cta {
+      margin-top: 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+      width: fit-content;
+      flex-wrap: wrap;
+    }
+
+    .booking-card {
+      position: relative;
+      z-index: 1;
+      scroll-margin-top: 92px;
+      padding: 26px;
+      background: linear-gradient(180deg, rgba(14, 14, 14, 0.06), rgba(9, 9, 9, 0.02));
+      border-width: 1.5px;
+      border-color: rgba(255, 255, 255, 0.68);
+      display: grid;
+      gap: 16px;
+      box-shadow:
+        0 0 0 2px rgba(255, 255, 255, 0.18),
+        0 16px 34px rgba(0, 0, 0, 0.1);
+    }
+
+    .booking-card h2,
+    .booking-sheet h2 {
+      margin: 0;
+      font-size: clamp(1.65rem, 3vw, 2.15rem);
+      letter-spacing: -0.03em;
+      line-height: 0.98;
+    }
+
+    .booking-text {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: rgba(255, 250, 244, 0.94);
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.26);
+    }
+
+    .form {
+      display: grid;
+      gap: 12px;
+    }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field label {
+      font-size: 13px;
+      font-weight: 800;
+      color: rgba(255, 250, 244, 0.98);
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.28);
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 14px 15px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--cream);
+      outline: none;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: rgba(var(--accent-rgb), 0.56);
+      box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.1);
+    }
+
+    textarea {
+      min-height: 102px;
+      resize: vertical;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(255, 250, 244, 0.74);
+      opacity: 1;
+    }
+
+    input[type="date"],
+    input[type="time"] {
+      color-scheme: dark;
+    }
+
+    input::-webkit-calendar-picker-indicator {
+      filter: invert(1) brightness(1.08);
+      opacity: 0.92;
+    }
+
+    .booking-actions {
+      display: grid;
+      gap: 0;
+      margin-top: 4px;
+    }
+
+    .booking-actions .btn {
+      width: 100%;
+    }
+
+    .btn-wa-icon {
+      display: none;
+    }
+
+    .whatsapp-mark {
+      width: 24px;
+      height: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      color: currentColor;
+      background: currentColor;
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35ZM12.04 21.4h-.01a9.84 9.84 0 0 1-5.02-1.38l-.36-.21-3.73.98 1-3.64-.24-.37A9.83 9.83 0 1 1 12.04 21.4Zm0-19.74A9.9 9.9 0 0 0 3.56 16.7L2.05 22.2l5.63-1.48a9.9 9.9 0 1 0 4.36-19.06Z'/%3E%3C/svg%3E") center / contain no-repeat;
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35ZM12.04 21.4h-.01a9.84 9.84 0 0 1-5.02-1.38l-.36-.21-3.73.98 1-3.64-.24-.37A9.83 9.83 0 1 1 12.04 21.4Zm0-19.74A9.9 9.9 0 0 0 3.56 16.7L2.05 22.2l5.63-1.48a9.9 9.9 0 1 0 4.36-19.06Z'/%3E%3C/svg%3E") center / contain no-repeat;
+      box-shadow: none;
+    }
+
+    .hero-mobile-booking,
+    .booking-sheet {
+      display: none;
+    }
+
+    .section {
+      padding: 94px 0;
+    }
+
+    .section-title {
+      max-width: 820px;
+      margin-bottom: 26px;
+    }
+
+    .section-eyebrow {
+      margin-bottom: 16px;
+      color: var(--gold);
+      background: rgba(var(--accent-rgb), 0.08);
+      border: 1px solid rgba(var(--accent-rgb), 0.18);
+    }
+
+    .section-title h2 {
+      font-size: clamp(2.6rem, 4.8vw, 4.5rem);
+      line-height: 0.98;
+      margin-bottom: 14px;
+    }
+
+    .section-title p {
+      margin: 0;
+      font-size: 1.06rem;
+      line-height: 1.8;
+      color: rgba(247, 239, 228, 0.72);
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .panel {
+      padding: 34px;
+      background: rgba(16, 16, 16, 0.88);
+    }
+
+    .story-copy {
+      min-height: clamp(560px, 48vw, 680px);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .story-copy .section-title {
+      max-width: 700px;
+      margin: 0 auto 24px;
+      text-align: center;
+    }
+
+    .story-copy .section-title h2 {
+      font-size: clamp(1.9rem, 3vw, 2.7rem);
+    }
+
+    .story-copy p {
+      max-width: 720px;
+      margin: 0 auto 18px;
+      font-size: clamp(1.04rem, 1.28vw, 1.14rem);
+      line-height: 1.72;
+      color: rgba(247, 239, 228, 0.72);
+    }
+
+    .story-cta-row {
+      display: flex;
+      justify-content: center;
+      margin-top: 6px;
+    }
+
+    .story-photo-card,
+    .restaurant-visual-card,
+    .map-frame-placeholder {
+      background: #000;
+    }
+
+    .story-photo-card {
+      padding: 0;
+      width: 100%;
+      min-height: 0;
+      aspect-ratio: 4 / 3;
+      align-self: center;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow);
+      background-image: url("molo-storia.jpg");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+
+    .story-photo-card::after,
+    .restaurant-visual-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      pointer-events: none;
+    }
+
+    .restaurant-section {
+      padding-top: 76px;
+    }
+
+    .restaurant-showcase {
+      display: grid;
+      gap: 28px;
+    }
+
+    .restaurant-header {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .restaurant-header .section-title {
+      max-width: 940px;
+      margin: 0 auto;
+    }
+
+    .restaurant-header .section-eyebrow {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .restaurant-header .section-title p {
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .restaurant-kicker {
+      color: var(--gold);
+      background: rgba(var(--accent-rgb), 0.08);
+      border: 1px solid rgba(var(--accent-rgb), 0.18);
+    }
+
+    .proposals-menu {
+      display: grid;
+      gap: 24px;
+      scroll-margin-top: 92px;
+    }
+
+    .proposals-track {
+      display: flex;
+      gap: clamp(16px, 2vw, 24px);
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      padding: 2px max(16px, calc((100vw - var(--max)) / 2)) 10px;
+    }
+
+    .proposals-track::-webkit-scrollbar { display: none; }
+
+    .proposal-card {
+      flex: 0 0 clamp(280px, 31vw, 410px);
+      margin: 0;
+      scroll-snap-align: start;
+    }
+
+    .proposal-card:nth-child(even) { padding-top: 54px; }
+
+    .proposal-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .proposal-card figcaption {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+      color: rgba(247, 239, 228, 0.72);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .proposal-card figcaption span { color: var(--gold-light); }
+
+    .proposals-footer {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .proposals-counter {
+      margin: 0;
+      color: rgba(247, 239, 228, 0.72);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+    }
+
+    .proposals-arrows { display: flex; gap: 10px; }
+
+    .proposals-arrows button {
+      width: 44px;
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      border-radius: 50%;
+      color: var(--cream);
+      background: transparent;
+      cursor: pointer;
+      transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .proposals-arrows button:hover,
+    .proposals-arrows button:focus-visible {
+      color: #111;
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .proposals-arrows button:hover,
+    .proposals-arrows button:focus-visible {
+      color: #111;
+      background: var(--gold-light);
+      border-color: var(--gold-light);
+    }
+
+    .proposals-arrows svg { width: 19px; height: 19px; }
+
+    .restaurant-cta-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .reviews-shell {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px;
+      border-radius: 34px;
+      background: linear-gradient(180deg, rgba(18, 18, 18, 0.94), rgba(10, 10, 10, 0.98));
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .reviews-intro {
+      max-width: 730px;
+      margin: 0 auto 24px;
+      text-align: center;
+    }
+
+    .reviews-intro .section-eyebrow {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .reviews-intro h2 {
+      font-size: clamp(2.35rem, 4.6vw, 4.2rem);
+      line-height: 0.98;
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .review {
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.035);
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .review-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .stars {
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      font-size: 0.92rem;
+    }
+
+    .review-source-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: 0 5px 16px rgba(0, 0, 0, 0.22);
+    }
+
+    .google-icon {
+      width: 19px;
+      height: 19px;
+      flex: 0 0 auto;
+    }
+
+    .btn .google-icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    .review p {
+      margin: 0 0 24px;
+      color: rgba(255, 249, 242, 0.86);
+      font-size: 1rem;
+      line-height: 1.74;
+    }
+
+    .review footer {
+      display: grid;
+      gap: 4px;
+      color: rgba(255, 249, 242, 0.76);
+    }
+
+    .review footer strong {
+      color: var(--ivory);
+      font-size: 0.96rem;
+    }
+
+    .review footer span {
+      font-size: 0.84rem;
+    }
+
+    .reviews-cta-wrap {
+      margin-top: 24px;
+      display: grid;
+      justify-items: center;
+      gap: 10px;
+    }
+
+    .reviews-note {
+      color: rgba(247, 239, 228, 0.54);
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    #contatti {
+      padding: 34px 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .contact-card,
+    .map-card {
+      background: linear-gradient(180deg, rgba(18, 18, 18, 0.95), rgba(10, 10, 10, 0.98));
+      padding: 22px;
+    }
+
+    .contact-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 470px;
+    }
+
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0 0;
+      display: grid;
+      gap: 9px;
+    }
+
+    .contact-list li {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 14px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .contact-item-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #15120b;
+      background: linear-gradient(145deg, var(--gold-light), var(--gold));
+    }
+
+    .contact-item-icon svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .contact-item-icon.whatsapp-contact-mark {
+      color: #111;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+    }
+
+    .contact-item-icon.whatsapp-contact-mark svg { display: none; }
+    .contact-item-icon.whatsapp-contact-mark::before {
+      content: "";
+      width: 22px;
+      height: 22px;
+      background: #111;
+      -webkit-mask: inherit;
+      mask: inherit;
+      -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35ZM12.04 21.4h-.01a9.84 9.84 0 0 1-5.02-1.38l-.36-.21-3.73.98 1-3.64-.24-.37A9.83 9.83 0 1 1 12.04 21.4Zm0-19.74A9.9 9.9 0 0 0 3.56 16.7L2.05 22.2l5.63-1.48a9.9 9.9 0 1 0 4.36-19.06Z'/%3E%3C/svg%3E");
+      -webkit-mask-position: center;
+      -webkit-mask-size: contain;
+      -webkit-mask-repeat: no-repeat;
+      mask-position: center;
+      mask-size: contain;
+      mask-repeat: no-repeat;
+    }
+
+    .contact-item-body {
+      display: grid;
+      gap: 5px;
+      min-width: 0;
+    }
+
+    .contact-item-body strong {
+      color: var(--ivory);
+      font-size: 0.92rem;
+    }
+
+    .contact-item-body span,
+    .contact-item-body a {
+      color: rgba(247, 239, 228, 0.72);
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-item-body a:hover {
+      color: var(--gold);
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .contact-actions .btn,
+    .contact-actions .btn-ghost {
+      flex: 1 1 170px;
+    }
+
+    .map-card {
+      display: grid;
+      gap: 14px;
+      min-height: 470px;
+    }
+
+    .map-frame {
+      position: relative;
+      min-height: 320px;
+      border-radius: 26px;
+      overflow: hidden;
+      background: #000;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .map-frame iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 320px;
+      border: 0;
+      display: block;
+      background: #000;
+    }
+
+    .map-consent {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: #000;
+      text-align: center;
+    }
+
+    .map-consent-inner {
+      display: grid;
+      justify-items: center;
+      gap: 14px;
+      max-width: 390px;
+    }
+
+    .map-consent strong {
+      font-size: 1.45rem;
+      letter-spacing: -0.03em;
+    }
+
+    .map-consent p {
+      margin: 0;
+      color: rgba(247, 239, 228, 0.72);
+      line-height: 1.65;
+    }
+
+    .map-caption {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      color: rgba(247, 239, 228, 0.68);
+      font-weight: 700;
+    }
+
+    .map-caption strong {
+      color: var(--ivory);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .footer {
+      padding: 44px 0 34px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(3, 3, 3, 0.94);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+      gap: 26px;
+      align-items: start;
+    }
+
+    .footer-legal-company {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--ivory);
+      font-size: 1.35rem;
+      letter-spacing: -0.03em;
+    }
+
+    .footer-logo {
+      display: block;
+      width: min(240px, 70vw);
+      height: 82px;
+      margin: 0 auto 14px;
+      object-fit: contain;
+    }
+
+    .footer p {
+      margin: 0;
+      color: rgba(247, 239, 228, 0.62);
+      line-height: 1.7;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 12px 18px;
+      color: rgba(247, 239, 228, 0.7);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
+    .menu-sheet {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 320;
+      background: rgba(0, 0, 0, 0.86);
+      backdrop-filter: blur(10px);
+    }
+
+    body.menu-sheet-open { overflow: hidden; }
+    body.menu-sheet-open .menu-sheet { display: block; }
+
+    .menu-sheet-dialog {
+      position: absolute;
+      inset: 18px;
+      display: grid;
+      grid-template-rows: auto auto 1fr;
+      overflow: hidden;
+      background: #f2eee3;
+      color: #18120e;
+      border: 1px solid rgba(var(--accent-rgb), 0.62);
+      border-radius: 8px;
+      box-shadow: 0 28px 90px rgba(0, 0, 0, 0.62);
+    }
+
+    .menu-sheet-header {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 104px;
+      padding: 12px 72px;
+      color: var(--gold-light);
+      background: #080706;
+      border-bottom: 12px solid var(--gold);
+    }
+
+    .menu-sheet-logo { width: 190px; height: 70px; object-fit: contain; }
+    .menu-sheet-close {
+      position: absolute;
+      top: 26px;
+      right: 26px;
+      width: 44px;
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      border-radius: 50%;
+      color: #fff;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .menu-categories {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 14px max(18px, calc((100% - 1120px) / 2));
+      scrollbar-width: none;
+      background: #18120e;
+    }
+    .menu-categories::-webkit-scrollbar { display: none; }
+    .menu-category {
+      flex: 0 0 auto;
+      min-height: 38px;
+      padding: 8px 15px;
+      border: 1px solid rgba(var(--accent-rgb), 0.45);
+      border-radius: 999px;
+      color: #f2eee3;
+      background: transparent;
+      font: inherit;
+      font-size: 0.76rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .menu-category.active { color: #17110a; background: var(--gold); border-color: var(--gold); }
+
+    .digital-menu-content {
+      overflow-y: auto;
+      padding: 46px max(24px, calc((100% - 1040px) / 2)) 72px;
+      background-color: #f2eee3;
+      background-image: repeating-linear-gradient(118deg, rgba(76, 57, 35, 0.025) 0 1px, transparent 1px 12px);
+    }
+    .digital-menu-section[hidden] { display: none; }
+    .digital-menu-title {
+      margin: 0 0 34px;
+      padding-bottom: 16px;
+      text-align: center;
+      color: #1d1510;
+      border-bottom: 2px solid #1d1510;
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      line-height: 0.95;
+    }
+    .menu-items { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 54px; }
+    .menu-item {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 6px 18px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(29, 21, 16, 0.22);
+    }
+    .menu-item h4 { margin: 0; color: #17110d; font-size: 1rem; line-height: 1.3; text-transform: uppercase; }
+    .menu-item p { grid-column: 1 / -1; margin: 0; color: rgba(29, 21, 16, 0.68); font-size: 0.9rem; line-height: 1.5; }
+    .menu-price { color: #17110d; font-weight: 900; white-space: nowrap; }
+    .beer-pairing {
+      grid-column: 1 / -1;
+      width: fit-content;
+      margin-top: 3px;
+      padding: 5px 9px;
+      border: 1px solid rgba(162, 124, 38, 0.38);
+      border-radius: 4px;
+      color: #654b15;
+      background: rgba(var(--accent-rgb), 0.16);
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .menu-note { margin: 34px 0 0; color: rgba(29, 21, 16, 0.66); text-align: center; font-size: 0.8rem; }
+
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    [data-animate].visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 1080px) {
+      .nav-links {
+        gap: 22px;
+      }
+
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(300px, 360px);
+      }
+
+      .reviews-shell {
+        padding: 32px;
+      }
+
+      .review-grid {
+        gap: 14px;
+      }
+    }
+
+    @media (max-width: 880px) {
+      .container {
+        width: min(100% - 24px, var(--max));
+      }
+
+      .nav {
+        min-height: 66px;
+        gap: 12px;
+      }
+
+      .brand-logo-wrap {
+        min-width: 134px;
+        min-height: 52px;
+        padding: 4px 12px;
+      }
+
+      .brand-logo-image {
+        width: 150px;
+        height: 50px;
+      }
+
+      .nav-links,
+      .lang-switcher {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .hero {
+        padding: 18px 0 42px;
+        min-height: auto;
+      }
+
+      .hero-grid {
+        min-height: calc(100svh - 106px);
+        grid-template-columns: 1fr;
+        align-content: center;
+      }
+
+      .hero-copy {
+        min-height: min(620px, calc(100svh - 126px));
+        padding: 34px 24px;
+        border-radius: 30px;
+      }
+
+      .hero-copy h1 {
+        font-size: clamp(2.55rem, 13vw, 4.5rem);
+        line-height: 0.9;
+      }
+
+      .hero-title-line {
+        white-space: normal;
+      }
+
+      .hero-copy p {
+        font-size: 1rem;
+      }
+
+      .booking-card {
+        display: none;
+      }
+
+      .hero-mobile-booking {
+        display: inline-flex;
+      }
+
+      .booking-sheet {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 260;
+        overflow: hidden;
+      }
+
+      body.booking-modal-open .booking-sheet {
+        display: block;
+      }
+
+      .booking-sheet-backdrop {
+        position: absolute;
+        inset: 0;
+        border: 0;
+        padding: 0;
+        background: rgba(4, 4, 4, 0.68);
+        backdrop-filter: blur(12px);
+      }
+
+      .booking-sheet-dialog {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: min(540px, calc(100% - 28px));
+        max-height: calc(100svh - 44px);
+        display: grid;
+        align-content: start;
+        gap: 16px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding: 58px 24px 22px;
+        border-radius: 28px;
+        background: linear-gradient(180deg, rgba(18, 18, 18, 0.985), rgba(10, 10, 10, 0.995));
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 24px 64px rgba(0, 0, 0, 0.42);
+        transform: translate(-50%, -50%);
+        overscroll-behavior: contain;
+      }
+
+      .booking-sheet-close {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        width: 40px;
+        height: 40px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 0;
+        border-radius: 999px;
+        color: rgba(255, 250, 244, 0.94);
+        background: rgba(255, 255, 255, 0.06);
+        cursor: pointer;
+      }
+
+      .booking-sheet-close svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .section {
+        padding: 76px 0;
+      }
+
+      .section-title h2 {
+        font-size: clamp(2.35rem, 10vw, 3.8rem);
+      }
+
+      .story-grid,
+      .restaurant-header,
+      .contact-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .story-copy,
+      .story-photo-card {
+        min-height: auto;
+      }
+
+      .story-copy {
+        padding: 28px 22px;
+      }
+
+      .story-photo-card {
+        min-height: 0;
+      }
+
+      .proposal-card { flex-basis: min(72vw, 390px); }
+      .proposal-card:nth-child(even) { padding-top: 36px; }
+
+      .review-grid {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(80%, 1fr);
+        grid-template-columns: none;
+        gap: 14px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 10px;
+      }
+
+      .review {
+        min-height: 300px;
+        scroll-snap-align: center;
+      }
+
+      .contact-card,
+      .map-card {
+        min-height: auto;
+      }
+
+      .map-frame,
+      .map-frame iframe {
+        min-height: 380px;
+      }
+
+      .footer-links {
+        justify-content: flex-start;
+      }
+
+      .menu-sheet-dialog { inset: 8px; }
+      .menu-sheet-header { min-height: 86px; padding-inline: 58px; border-bottom-width: 8px; }
+      .menu-sheet-logo { width: 150px; height: 56px; }
+      .menu-sheet-close { top: 20px; right: 16px; width: 40px; height: 40px; }
+      .digital-menu-content { padding: 34px 20px 56px; }
+      .menu-items { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .topbar {
+        position: sticky;
+      }
+
+      .mobile-menu {
+        top: 76px;
+        border-radius: 22px;
+      }
+
+      .hero {
+        padding-top: 12px;
+      }
+
+      .hero-grid {
+        min-height: calc(100svh - 90px);
+      }
+
+      .hero-copy {
+        min-height: min(680px, calc(100svh - 100px));
+        padding: 28px 20px;
+        justify-content: flex-end;
+      }
+
+      .eyebrow,
+      .section-eyebrow,
+      .badge {
+        font-size: 0.7rem;
+        letter-spacing: 0.1em;
+        padding: 8px 12px;
+      }
+
+      .hero-copy h1 {
+        font-size: clamp(2.38rem, 13.5vw, 4rem);
+        max-width: 8.2em;
+      }
+
+      .hero-call-cta,
+      .restaurant-cta-row,
+      .contact-actions {
+        width: 100%;
+      }
+
+      .hero-call-cta .btn,
+      .hero-call-cta .btn-ghost,
+      .restaurant-cta-row .btn,
+      .restaurant-cta-row .btn-ghost {
+        flex: 1 1 100%;
+        width: 100%;
+      }
+
+      .hero-facts {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .hero-fact {
+        justify-content: center;
+        white-space: normal;
+      }
+
+      .section {
+        padding: 64px 0;
+      }
+
+      .panel,
+      .reviews-shell,
+      .contact-card,
+      .map-card {
+        border-radius: 28px;
+      }
+
+      .reviews-shell {
+        width: min(100% - 24px, var(--max));
+        padding: 26px 18px;
+      }
+
+      .review-grid {
+        grid-auto-columns: minmax(88%, 1fr);
+      }
+
+      .restaurant-visual-grid {
+        grid-auto-columns: minmax(88%, 1fr);
+      }
+
+      .restaurant-visual-card {
+        min-height: 360px;
+        border-radius: 26px;
+      }
+
+      .story-photo-card {
+        min-height: 360px;
+        border-radius: 28px;
+      }
+
+      .story-photo-note {
+        left: 14px;
+        right: 14px;
+        bottom: 14px;
+        padding: 15px;
+        border-radius: 18px;
+      }
+
+      .contact-list li {
+        grid-template-columns: 38px minmax(0, 1fr);
+        gap: 12px;
+      }
+
+      .contact-item-icon {
+        width: 38px;
+        height: 38px;
+      }
+
+      .map-caption {
+        display: grid;
+        gap: 12px;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .container {
+        width: min(100% - 20px, var(--max));
+      }
+
+      .brand-logo-wrap {
+        min-width: 122px;
+      }
+
+      .brand-logo-text strong {
+        font-size: 1.12rem;
+      }
+
+      .brand-logo-text span {
+        font-size: 0.51rem;
+      }
+
+      .hero-copy {
+        padding: 24px 18px;
+      }
+
+      .hero-copy h1 {
+        font-size: clamp(2.18rem, 13.2vw, 3.3rem);
+      }
+
+      .section-title h2 {
+        font-size: clamp(2.08rem, 11vw, 3.1rem);
+      }
+    }
+
+    /* Refined hero, booking dialog and footer */
+    .hero { padding: 0; min-height: calc(100svh - 68px); }
+    .hero-media::after {
+      background: radial-gradient(circle at 50% 46%, rgba(255,255,255,.025), transparent 42%), linear-gradient(180deg, rgba(0,0,0,.16), rgba(0,0,0,.34));
+    }
+    .hero-grid {
+      display: flex; align-items: center; justify-content: center;
+      min-height: calc(100svh - 68px); padding-block: 56px;
+    }
+    .hero-copy {
+      width: min(820px, 100%); min-height: 0; padding: 52px 44px;
+      align-items: center; text-align: center; background: rgba(4,4,4,.16);
+      border: 1px solid rgba(255,255,255,.2); border-radius: 8px;
+      box-shadow: 0 24px 70px rgba(0,0,0,.18); backdrop-filter: blur(2px);
+    }
+    .hero-copy .eyebrow {
+      margin: 0 0 20px; color: var(--gold-light); background: transparent;
+      border-color: rgba(var(--accent-rgb),.45); border-radius: 4px;
+      font-size: .7rem; font-weight: 700; letter-spacing: .16em;
+    }
+    .hero-copy h1 {
+      margin-bottom: 18px; font-size: clamp(3.8rem,8vw,7.2rem);
+      line-height: .88; letter-spacing: 0;
+    }
+    .hero-copy p {
+      max-width: 590px; font-size: clamp(1rem,1.45vw,1.12rem);
+      line-height: 1.75; color: rgba(255,249,242,.82);
+    }
+    .hero-facts { justify-content: center; margin-top: 24px; }
+    .hero-fact {
+      min-height: auto; padding: 0 12px; border: 0;
+      border-right: 1px solid rgba(var(--accent-rgb),.45); border-radius: 0;
+      background: transparent; color: rgba(255,249,242,.7);
+      font-size: .76rem; font-weight: 600; letter-spacing: .04em;
+    }
+    .hero-fact:last-child { border-right: 0; }
+    .hero-call-cta { justify-content: center; margin-top: 30px; }
+    .hero-booking-cta {
+      min-width: 190px; text-transform: uppercase; letter-spacing: .08em;
+      border: 1px solid rgba(255,235,178,.28);
+    }
+    .booking-sheet { display: none; position: fixed; inset: 0; z-index: 260; overflow: hidden; }
+    body.booking-modal-open .booking-sheet { display: block; }
+    .booking-sheet-backdrop {
+      position: absolute; inset: 0; border: 0; padding: 0;
+      background: rgba(0,0,0,.76); backdrop-filter: blur(10px);
+    }
+    .booking-sheet-dialog {
+      position: absolute; top: 50%; left: 50%; width: min(520px,calc(100% - 32px));
+      max-height: calc(100svh - 40px); display: grid; align-content: start; gap: 16px;
+      overflow-y: auto; padding: 54px 30px 28px; border: 1px solid rgba(var(--accent-rgb),.28);
+      border-radius: 8px; background: #101010; box-shadow: 0 28px 90px rgba(0,0,0,.55);
+      transform: translate(-50%,-50%); overscroll-behavior: contain;
+    }
+    .booking-sheet-close {
+      position: absolute; top: 12px; right: 12px; width: 38px; height: 38px;
+      display: inline-flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(255,255,255,.1); border-radius: 50%;
+      color: var(--cream); background: rgba(255,255,255,.04); cursor: pointer;
+    }
+    .booking-sheet-close svg { width: 16px; height: 16px; }
+    .booking-sheet h2 { letter-spacing: 0; }
+    .footer-grid { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+    .footer-links { justify-content: center; }
+
+    @media (max-width: 880px) {
+      .hero, .hero-grid { min-height: calc(100svh - 66px); }
+      .hero-grid { padding-block: 34px; }
+      .hero-copy { min-height: 0; padding: 44px 28px; border-radius: 8px; }
+      .hero-copy h1 { font-size: clamp(3.5rem,15vw,6rem); line-height: .9; }
+      .footer-links { justify-content: center; }
+    }
+    @media (max-width: 640px) {
+      .hero { padding: 0; }
+      .hero-grid { min-height: calc(100svh - 66px); padding-block: 24px; }
+      .hero-copy { min-height: 0; padding: 38px 20px; justify-content: center; }
+      .hero-copy h1 { max-width: none; font-size: clamp(3.25rem,18vw,5rem); }
+      .hero-facts { display: flex; flex-wrap: wrap; gap: 9px 0; }
+      .hero-fact { justify-content: center; white-space: normal; }
+      .hero-call-cta { width: auto; }
+      .hero-call-cta .hero-booking-cta { width: auto; min-width: 190px; flex: 0 0 auto; }
+      .booking-sheet-dialog { padding: 52px 20px 22px; }
+      .proposal-card { flex-basis: 84vw; }
+      .proposal-card:nth-child(even) { padding-top: 24px; }
+      .story-photo-card { min-height: 0; aspect-ratio: 4 / 3; }
+    }
+
+    @media (min-width: 881px) {
+      .contact-card .section-title h2 {
+        white-space: nowrap;
+        font-size: clamp(2.35rem, 4vw, 4rem);
+      }
+    }
+
+    /* Final visual system: open sections, restrained gold-yellow, clean brand marks. */
+    :root {
+      --gold: #d8b84c;
+      --gold-deep: #a47b20;
+      --gold-light: #ead37b;
+      --accent-rgb: 216, 184, 76;
+    }
+
+    .nav { min-height: 78px; }
+    .brand-logo-wrap {
+      width: 112px;
+      min-width: 112px;
+      height: 70px;
+      min-height: 70px;
+      padding: 0;
+      overflow: visible;
+      background: transparent;
+      box-shadow: none;
+    }
+    .brand-logo-image {
+      width: auto;
+      max-width: none;
+      height: 66px;
+      flex: 0 0 auto;
+      object-fit: contain;
+    }
+
+    .btn,
+    .lang-btn.active,
+    .contact-item-icon {
+      background: var(--gold);
+      box-shadow: none;
+    }
+    .topbar,
+    .footer,
+    .btn-ghost,
+    .review-source-pill { border: 0; }
+    .btn:hover,
+    .btn:focus-visible { background: var(--gold-light); }
+
+    .whatsapp-mark {
+      width: 27px;
+      height: 27px;
+      filter: none;
+      -webkit-mask-image: url("whatsapp-mark.png");
+      mask-image: url("whatsapp-mark.png");
+    }
+
+    .contact-item-icon.whatsapp-contact-mark::before {
+      width: 25px;
+      height: 25px;
+      -webkit-mask-image: url("whatsapp-mark.png");
+      mask-image: url("whatsapp-mark.png");
+    }
+
+    .hero-copy,
+    .booking-card,
+    .panel,
+    .story-photo-card,
+    .reviews-shell,
+    .review,
+    .contact-card,
+    .map-card,
+    .map-frame,
+    .contact-list li,
+    .proposal-card img {
+      border: 0;
+      box-shadow: none;
+    }
+
+    .hero-copy,
+    .panel,
+    .reviews-shell,
+    .review,
+    .contact-card,
+    .map-card,
+    .contact-list li {
+      background: transparent;
+    }
+
+    .hero-copy { border-radius: 0; }
+    .reviews-shell { overflow: visible; }
+    .review { padding-inline: 18px; }
+    .contact-list li { padding-inline: 0; }
+    .story-photo-card,
+    .proposal-card img,
+    .map-frame { border-radius: 0; }
+    .story-photo-card::after,
+    .restaurant-visual-card::after { display: none; }
+
+    .menu-modal-card,
+    .menu-category,
+    .menu-list-item,
+    .booking-sheet-panel,
+    .booking-sheet-close,
+    .restaurant-carousel,
+    .carousel-control,
+    .carousel-dot {
+      border: 0;
+      box-shadow: none;
+    }
+
+    .eyebrow,
+    .section-eyebrow,
+    .restaurant-kicker,
+    .hero-copy .eyebrow {
+      border: 0;
+      box-shadow: none;
+    }
+
+    @media (max-width: 880px) {
+      .nav { min-height: 72px; }
+      .brand-logo-wrap {
+        width: 104px;
+        min-width: 104px;
+        height: 64px;
+        min-height: 64px;
+        padding: 0;
+      }
+      .brand-logo-image {
+        width: auto;
+        max-width: none;
+        height: 62px;
+      }
+      .hero-copy { border-radius: 0; }
+      .reviews-shell,
+      .contact-card,
+      .map-card,
+      .panel { border-radius: 0; }
+    }
+
+    @media (max-width: 430px) {
+      .brand-logo-wrap { width: 100px; min-width: 100px; }
+      .brand-logo-image { width: auto; height: 60px; }
+    }
+
+    /* Cinematic hero carousel */
+    .hero-media {
+      isolation: isolate;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      margin: 0;
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+      pointer-events: none;
+    }
+
+    .hero-slide.is-active {
+      z-index: 1;
+      opacity: 1;
+    }
+
+    .hero-slide picture,
+    .hero-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero-slide img {
+      object-fit: cover;
+      object-position: var(--desktop-position, center);
+      transform: scale(1);
+      transition: transform 4.8s linear;
+      will-change: transform, opacity;
+    }
+
+    .hero-slide.is-active img {
+      transform: scale(1.03);
+    }
+
+    .hero-media::after {
+      z-index: 2;
+      background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.13), rgba(0, 0, 0, 0.04) 50%, rgba(0, 0, 0, 0.13)),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.02) 42%, rgba(0, 0, 0, 0.2));
+    }
+
+    .hero-copy {
+      background: transparent;
+      backdrop-filter: none;
+    }
+
+    .hero-copy h1 {
+      max-width: calc(100vw - 64px);
+      font-size: clamp(2.65rem, 4.7vw, 4.9rem);
+      line-height: 1;
+      white-space: nowrap;
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.34s ease, transform 0.34s ease;
+    }
+
+    .hero-copy h1[data-hero-index="4"] {
+      font-size: clamp(2.4rem, 3.9vw, 4.25rem);
+    }
+
+    .hero-copy h1.is-changing {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    @media (max-width: 640px) {
+      .hero-slide img {
+        object-position: var(--mobile-position, center);
+      }
+
+      .hero-copy h1 {
+        max-width: calc(100vw - 32px);
+        font-size: clamp(2.35rem, 11vw, 3.8rem);
+        line-height: 1.04;
+        white-space: normal;
+        text-wrap: balance;
+      }
+
+      .hero-copy h1[data-hero-index="4"] {
+        max-width: calc(100vw - 40px);
+        font-size: clamp(2rem, 9vw, 3.15rem);
+        line-height: 1.06;
+      }
+    }
+
+    .hero-booking-cta .whatsapp-mark {
+      width: 25px;
+      height: 25px;
+      background: none;
+      -webkit-mask: none;
+      mask: none;
+    }
+
+    .hero-booking-cta .btn-wa-icon {
+      display: block;
+      width: 25px;
+      height: 25px;
+      fill: currentColor;
+    }
+
+    .hero-copy { overflow: visible; }
+
+    .whatsapp-mark {
+      width: 26px !important;
+      height: 26px !important;
+      display: inline-flex !important;
+      align-items: center;
+      justify-content: center;
+      background: transparent !important;
+      -webkit-mask: none !important;
+      mask: none !important;
+      filter: none !important;
+    }
+
+    .whatsapp-mark .btn-wa-icon {
+      display: block !important;
+      width: 26px !important;
+      height: 26px !important;
+      fill: #111 !important;
+      flex: 0 0 26px;
+    }
+
+    .contact-item-icon.whatsapp-contact-mark::before { display: none !important; content: none !important; }
+    .contact-item-icon.whatsapp-contact-mark svg {
+      display: block !important;
+      width: 26px !important;
+      height: 26px !important;
+      fill: #111 !important;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-slide,
+      .hero-slide img,
+      .hero-copy h1 {
+        transition: none;
+      }
+
+      .hero-slide.is-active img {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="container nav" aria-label="Navigazione principale">
+      <a class="brand" href="#top" aria-label="Molo 2.0">
+        <span class="brand-logo-wrap">
+          <img class="brand-logo-image" src="molo20-logo-cropped.png" alt="" aria-hidden="true" />
+        </span>
+      </a>
+
+      <div class="nav-links" aria-label="Sezioni">
+        <a href="#ristorante" data-i18n="nav_restaurant">Ristorante</a>
+        <a href="#storia" data-i18n="nav_story">La nostra storia</a>
+        <a href="#recensioni" data-i18n="nav_reviews">Recensioni</a>
+        <a href="#contatti" data-i18n="nav_contacts">Contatti</a>
+      </div>
+
+      <div class="nav-actions">
+        <div class="lang-switcher" aria-label="Lingua">
+          <button class="lang-btn active" type="button" data-lang="it" data-short="IT" aria-label="Italiano"></button>
+          <button class="lang-btn" type="button" data-lang="en" data-short="EN" aria-label="English"></button>
+        </div>
+        <button class="menu-toggle" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="mobileMenu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <img class="mobile-menu-logo" src="molo20-logo.png" alt="Molo20" />
+    <a href="#ristorante" data-i18n="nav_restaurant">Ristorante</a>
+    <a href="#storia" data-i18n="nav_story">La nostra storia</a>
+    <a href="#recensioni" data-i18n="nav_reviews">Recensioni</a>
+    <a href="#contatti" data-i18n="nav_contacts">Contatti</a>
+  </div>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero-media" aria-hidden="true">
+        <figure class="hero-slide is-active" data-hero-slide style="--desktop-position: center 54%; --mobile-position: center 50%;">
+          <picture>
+            <source media="(max-width: 640px)" srcset="hero-01-mobile.png" />
+            <img src="hero-01-desktop.png" alt="" fetchpriority="high" decoding="async" />
+          </picture>
+        </figure>
+        <figure class="hero-slide" data-hero-slide data-desktop="hero-02-desktop.png" data-mobile="hero-02-mobile.png" style="--desktop-position: center 51%; --mobile-position: center 50%;">
+          <picture><source media="(max-width: 640px)" /><img alt="" decoding="async" /></picture>
+        </figure>
+        <figure class="hero-slide" data-hero-slide data-desktop="hero-03-desktop.png" data-mobile="hero-03-mobile.png" style="--desktop-position: center 58%; --mobile-position: center 54%;">
+          <picture><source media="(max-width: 640px)" /><img alt="" decoding="async" /></picture>
+        </figure>
+        <figure class="hero-slide" data-hero-slide data-desktop="hero-04-desktop.png" data-mobile="hero-04-mobile.png" style="--desktop-position: center 53%; --mobile-position: center 50%;">
+          <picture><source media="(max-width: 640px)" /><img alt="" decoding="async" /></picture>
+        </figure>
+        <figure class="hero-slide" data-hero-slide data-desktop="hero-05-desktop.png" data-mobile="hero-05-mobile.png" style="--desktop-position: center 52%; --mobile-position: center 50%;">
+          <picture><source media="(max-width: 640px)" /><img alt="" decoding="async" /></picture>
+        </figure>
+      </div>
+      <div class="container hero-grid">
+        <div class="hero-copy" data-animate>
+          <span class="eyebrow" data-i18n="hero_eyebrow">A Genova, nel cuore del Molo</span>
+          <h1 data-hero-title data-hero-index="0" aria-live="polite">Sapori di Genova</h1>
+          <p data-i18n="hero_text">
+            Pizza, cucina ligure e piatti di mare a due passi dal Porto Antico, in un locale informale pensato per pranzi, cene e tavoli pieni.
+          </p>
+          <div class="hero-facts" aria-label="Punti forti">
+            <span class="hero-fact" data-i18n="hero_fact_1">Pizza e cucina ligure</span>
+            <span class="hero-fact" data-i18n="hero_fact_2">Via del Molo 77/79r</span>
+            <span class="hero-fact" data-i18n="hero_fact_3">Pranzo e cena</span>
+          </div>
+          <div class="hero-call-cta">
+            <button class="btn hero-booking-cta" type="button" data-open-booking>
+              <span data-i18n="hero_booking_cta">Prenota ora</span>
+              <span class="whatsapp-mark"><svg class="btn-wa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35ZM12.04 21.4h-.01a9.84 9.84 0 0 1-5.02-1.38l-.36-.21-3.73.98 1-3.64-.24-.37A9.83 9.83 0 1 1 12.04 21.4Zm0-19.74A9.9 9.9 0 0 0 3.56 16.7L2.05 22.2l5.63-1.48a9.9 9.9 0 1 0 4.36-19.06Z"/></svg></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section restaurant-section" id="ristorante">
+      <div class="container restaurant-showcase">
+        <div class="restaurant-header" data-animate>
+          <div class="section-title">
+            <span class="section-eyebrow restaurant-kicker" data-i18n="restaurant_eyebrow">Ristorante</span>
+            <h2 data-i18n="restaurant_title">Pizza, cucina ligure e tavola di mare.</h2>
+            <p data-i18n="restaurant_text">
+              Molo 2.0 unisce l'anima della pizzeria alla trattoria genovese: piatti semplici, sapori riconoscibili e un servizio pensato per chi vive il centro, lavora in zona o passa dal Porto Antico.
+            </p>
+          </div>
+        </div>
+
+        <div class="proposals-menu" id="proposte" data-animate>
+          <div class="proposals-track" data-proposals-track aria-label="Le nostre proposte">
+            <figure class="proposal-card"><img src="proposta-01.jpg" alt="Pizza ai funghi" loading="lazy" /><figcaption><strong>Pizza ai funghi</strong><span>01</span></figcaption></figure>
+            <figure class="proposal-card"><img src="proposta-02.jpg" alt="Mandilli al pesto" loading="lazy" /><figcaption><strong>Mandilli al pesto</strong><span>02</span></figcaption></figure>
+            <figure class="proposal-card"><img src="proposta-03.jpg" alt="Pizza con mortadella, burrata e pesto" loading="lazy" /><figcaption><strong>Mortadella, burrata e pesto</strong><span>03</span></figcaption></figure>
+            <figure class="proposal-card"><img src="proposta-04.jpg" alt="Pansoti in salsa di noci" loading="lazy" /><figcaption><strong>Pansoti in salsa di noci</strong><span>04</span></figcaption></figure>
+            <figure class="proposal-card"><img src="proposta-05.jpg" alt="Pizza al pesto" loading="lazy" /><figcaption><strong>Pizza al pesto</strong><span>05</span></figcaption></figure>
+            <figure class="proposal-card"><img src="proposta-06.jpg" alt="Spaghetti allo scoglio" loading="lazy" /><figcaption><strong>Spaghetti allo scoglio</strong><span>06</span></figcaption></figure>
+            <figure class="proposal-card"><img src="proposta-07.jpg" alt="Focaccia al formaggio" loading="lazy" /><figcaption><strong>Focaccia al formaggio</strong><span>07</span></figcaption></figure>
+            <figure class="proposal-card"><img src="proposta-08.jpg" alt="Spaghetti alle vongole" loading="lazy" /><figcaption><strong>Spaghetti alle vongole</strong><span>08</span></figcaption></figure>
+            <figure class="proposal-card"><img src="proposta-09.jpg" alt="Pizza con salsiccia" loading="lazy" /><figcaption><strong>Pizza con salsiccia</strong><span>09</span></figcaption></figure>
+            <figure class="proposal-card"><img src="proposta-10.jpg" alt="Carbonara" loading="lazy" /><figcaption><strong>Carbonara</strong><span>10</span></figcaption></figure>
+            <figure class="proposal-card"><img src="proposta-11.jpg" alt="Fritto di calamari" loading="lazy" /><figcaption><strong>Fritto di calamari</strong><span>11</span></figcaption></figure>
+            <figure class="proposal-card"><img src="proposta-12.jpg" alt="Calzone al cioccolato" loading="lazy" /><figcaption><strong>Calzone al cioccolato</strong><span>12</span></figcaption></figure>
+            <figure class="proposal-card"><img src="proposta-13.jpg" alt="Torta della nonna" loading="lazy" /><figcaption><strong>Torta della nonna</strong><span>13</span></figcaption></figure>
+          </div>
+          <div class="proposals-footer">
+            <p class="proposals-counter"><span data-proposals-current>01</span> / 13</p>
+            <div class="proposals-arrows">
+              <button type="button" data-proposals-prev aria-label="Proposta precedente"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg></button>
+              <button type="button" data-proposals-next aria-label="Proposta successiva"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="restaurant-cta-row" data-animate>
+          <a class="btn" href="https://molo20-ordina.depaolidavide20.chatgpt.site">
+            <span data-i18n="restaurant_cta_primary">Le nostre proposte</span>
+          </a>
+          <a class="btn-ghost" href="tel:+393757087017" data-i18n="restaurant_cta_secondary">Chiama il ristorante</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="storia">
+      <div class="container story-grid">
+        <div class="panel story-copy" data-animate>
+          <div class="section-title">
+            <span class="section-eyebrow" data-i18n="story_eyebrow">La nostra storia</span>
+            <h2 data-i18n="story_title">Nel cuore del Porto Antico di Genova.</h2>
+          </div>
+          <p data-i18n="story_text_1">Nel cuore del Porto Antico, <strong>Molo20 celebra i sapori autentici della tradizione genovese</strong> con ingredienti freschi e ricette tramandate nel tempo.</p>
+          <p data-i18n="story_text_2">Pizze artigianali a lunga lievitazione, farinate e piatti liguri raccontano il territorio, insieme al nostro pesto genovese di produzione propria.</p>
+          <p data-i18n="story_closing"><strong>Molo20: il sapore della tradizione, a portata di mano.</strong></p>
+          <div class="story-cta-row">
+            <a class="btn" href="#contatti" data-i18n="story_cta">Contattaci</a>
+          </div>
+        </div>
+
+        <div class="story-photo-card" role="img" aria-label="Ingresso della pizzeria trattoria Molo 2.0 in via del Molo a Genova" data-animate></div>
+      </div>
+    </section>
+
+    <section class="section" id="recensioni">
+      <div class="reviews-shell">
+        <div class="section-title reviews-intro" data-animate>
+          <span class="section-eyebrow" data-i18n="reviews_eyebrow">Recensioni</span>
+          <h2 data-i18n="reviews_title">Le parole dei nostri clienti</h2>
+        </div>
+
+        <div class="review-grid">
+          <article class="review" data-animate>
+            <div class="review-top">
+              <span class="stars" aria-label="5 stelle">★★★★★</span>
+              <span class="review-source-pill" aria-label="Google"><svg class="google-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M21.6 12.23c0-.71-.06-1.4-.18-2.05H12v3.87h5.38a4.6 4.6 0 0 1-2 3.02v2.51h3.24c1.9-1.75 2.98-4.33 2.98-7.35Z"/><path fill="#34A853" d="M12 22c2.7 0 4.96-.9 6.62-2.42l-3.24-2.51c-.9.6-2.05.96-3.38.96-2.6 0-4.81-1.76-5.6-4.12H3.05v2.59A10 10 0 0 0 12 22Z"/><path fill="#FBBC05" d="M6.4 13.91A6.02 6.02 0 0 1 6.09 12c0-.66.11-1.31.31-1.91V7.5H3.05A10 10 0 0 0 2 12c0 1.61.39 3.14 1.05 4.5l3.35-2.59Z"/><path fill="#EA4335" d="M12 5.97c1.47 0 2.79.51 3.82 1.5l2.87-2.87A9.62 9.62 0 0 0 12 2a10 10 0 0 0-8.95 5.5l3.35 2.59c.79-2.36 3-4.12 5.6-4.12Z"/></svg></span>
+            </div>
+            <p data-i18n="reviews_quote_1">Pizza apprezzata, cucina varia e atmosfera conviviale nel cuore della zona del Porto Antico.</p>
+            <footer>
+              <strong data-i18n="reviews_verified">Cliente verificato</strong>
+              <span data-i18n="reviews_source">Recensione online</span>
+            </footer>
+          </article>
+
+          <article class="review" data-animate>
+            <div class="review-top">
+              <span class="stars" aria-label="5 stelle">★★★★★</span>
+              <span class="review-source-pill" aria-label="Google"><svg class="google-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M21.6 12.23c0-.71-.06-1.4-.18-2.05H12v3.87h5.38a4.6 4.6 0 0 1-2 3.02v2.51h3.24c1.9-1.75 2.98-4.33 2.98-7.35Z"/><path fill="#34A853" d="M12 22c2.7 0 4.96-.9 6.62-2.42l-3.24-2.51c-.9.6-2.05.96-3.38.96-2.6 0-4.81-1.76-5.6-4.12H3.05v2.59A10 10 0 0 0 12 22Z"/><path fill="#FBBC05" d="M6.4 13.91A6.02 6.02 0 0 1 6.09 12c0-.66.11-1.31.31-1.91V7.5H3.05A10 10 0 0 0 2 12c0 1.61.39 3.14 1.05 4.5l3.35-2.59Z"/><path fill="#EA4335" d="M12 5.97c1.47 0 2.79.51 3.82 1.5l2.87-2.87A9.62 9.62 0 0 0 12 2a10 10 0 0 0-8.95 5.5l3.35 2.59c.79-2.36 3-4.12 5.6-4.12Z"/></svg></span>
+            </div>
+            <p data-i18n="reviews_quote_2">Una tappa comoda per chi cerca pizza, piatti liguri e un conto corretto in centro.</p>
+            <footer>
+              <strong data-i18n="reviews_verified">Cliente verificato</strong>
+              <span data-i18n="reviews_source">Recensione online</span>
+            </footer>
+          </article>
+
+          <article class="review" data-animate>
+            <div class="review-top">
+              <span class="stars" aria-label="5 stelle">★★★★★</span>
+              <span class="review-source-pill" aria-label="Google"><svg class="google-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M21.6 12.23c0-.71-.06-1.4-.18-2.05H12v3.87h5.38a4.6 4.6 0 0 1-2 3.02v2.51h3.24c1.9-1.75 2.98-4.33 2.98-7.35Z"/><path fill="#34A853" d="M12 22c2.7 0 4.96-.9 6.62-2.42l-3.24-2.51c-.9.6-2.05.96-3.38.96-2.6 0-4.81-1.76-5.6-4.12H3.05v2.59A10 10 0 0 0 12 22Z"/><path fill="#FBBC05" d="M6.4 13.91A6.02 6.02 0 0 1 6.09 12c0-.66.11-1.31.31-1.91V7.5H3.05A10 10 0 0 0 2 12c0 1.61.39 3.14 1.05 4.5l3.35-2.59Z"/><path fill="#EA4335" d="M12 5.97c1.47 0 2.79.51 3.82 1.5l2.87-2.87A9.62 9.62 0 0 0 12 2a10 10 0 0 0-8.95 5.5l3.35 2.59c.79-2.36 3-4.12 5.6-4.12Z"/></svg></span>
+            </div>
+            <p data-i18n="reviews_quote_3">Personale gentile, posizione centrale e una proposta adatta sia al pranzo sia alla cena.</p>
+            <footer>
+              <strong data-i18n="reviews_verified">Cliente verificato</strong>
+              <span data-i18n="reviews_source">Recensione online</span>
+            </footer>
+          </article>
+        </div>
+
+        <div class="reviews-cta-wrap" data-animate>
+          <a class="btn" href="https://www.google.com/search?q=Pizzeria+Trattoria+Molo+2.0+Via+del+Molo+77+79r+Genova+recensioni" target="_blank" rel="noopener noreferrer">
+            <svg class="google-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M21.6 12.23c0-.71-.06-1.4-.18-2.05H12v3.87h5.38a4.6 4.6 0 0 1-2 3.02v2.51h3.24c1.9-1.75 2.98-4.33 2.98-7.35Z"/><path fill="#34A853" d="M12 22c2.7 0 4.96-.9 6.62-2.42l-3.24-2.51c-.9.6-2.05.96-3.38.96-2.6 0-4.81-1.76-5.6-4.12H3.05v2.59A10 10 0 0 0 12 22Z"/><path fill="#FBBC05" d="M6.4 13.91A6.02 6.02 0 0 1 6.09 12c0-.66.11-1.31.31-1.91V7.5H3.05A10 10 0 0 0 2 12c0 1.61.39 3.14 1.05 4.5l3.35-2.59Z"/><path fill="#EA4335" d="M12 5.97c1.47 0 2.79.51 3.82 1.5l2.87-2.87A9.62 9.62 0 0 0 12 2a10 10 0 0 0-8.95 5.5l3.35 2.59c.79-2.36 3-4.12 5.6-4.12Z"/></svg>
+            <span data-i18n="reviews_cta">Lascia una recensione su Google</span>
+          </a>
+          <div class="reviews-note" data-i18n="reviews_note">Ci vogliono solo pochi secondi</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contatti">
+      <div class="container contact-grid">
+        <div class="contact-card" data-animate>
+          <div>
+            <div class="section-title">
+              <span class="section-eyebrow" data-i18n="contact_eyebrow">Contatti</span>
+              <h2 data-i18n="contact_title">Vieni a trovarci.</h2>
+              <p data-i18n="contact_text">Siamo in via del Molo 77/79 rosso, nel centro storico di Genova, vicino al Porto Antico.</p>
+            </div>
+
+            <ul class="contact-list">
+              <li>
+                <span class="contact-item-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z" />
+                  </svg>
+                </span>
+                <div class="contact-item-body">
+                  <strong data-i18n="contact_address_label">Indirizzo</strong>
+                  <span>Via del Molo 77/79r<br />16128 Genova GE</span>
+                </div>
+              </li>
+              <li>
+                <span class="contact-item-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.11.37 2.31.56 3.58.56a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.27.19 2.47.56 3.58a1 1 0 0 1-.24 1.01l-2.2 2.2Z" />
+                  </svg>
+                </span>
+                <div class="contact-item-body">
+                  <strong data-i18n="contact_phone_label">Telefono</strong>
+                  <a href="tel:+393757087017">+39 375 708 7017</a>
+                </div>
+              </li>
+              <li>
+                <span class="contact-item-icon whatsapp-contact-mark" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35ZM12.04 21.4h-.01a9.84 9.84 0 0 1-5.02-1.38l-.36-.21-3.73.98 1-3.64-.24-.37A9.83 9.83 0 1 1 12.04 21.4Zm0-19.74A9.9 9.9 0 0 0 3.56 16.7L2.05 22.2l5.63-1.48a9.9 9.9 0 1 0 4.36-19.06Z"/>
+                  </svg>
+                </span>
+                <div class="contact-item-body">
+                  <strong>WhatsApp</strong>
+                  <a href="https://wa.me/393757087017" target="_blank" rel="noopener noreferrer">+39 375 708 7017</a>
+                </div>
+              </li>
+              <li>
+                <span class="contact-item-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2a10 10 0 1 0 10 10A10.01 10.01 0 0 0 12 2Zm1 10.41V6h-2v7.25l5.15 3.09 1-1.64-4.15-2.29Z" />
+                  </svg>
+                </span>
+                <div class="contact-item-body">
+                  <strong data-i18n="contact_hours_label">Orari</strong>
+                  <span data-i18n="contact_hours_value">Pranzo e cena tutti i giorni</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="contact-actions">
+            <button class="btn" type="button" data-open-booking>
+              <span data-i18n="contact_book">Prenota ora</span>
+              <span class="whatsapp-mark"><svg class="btn-wa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35ZM12.04 21.4h-.01a9.84 9.84 0 0 1-5.02-1.38l-.36-.21-3.73.98 1-3.64-.24-.37A9.83 9.83 0 1 1 12.04 21.4Zm0-19.74A9.9 9.9 0 0 0 3.56 16.7L2.05 22.2l5.63-1.48a9.9 9.9 0 1 0 4.36-19.06Z"/></svg></span>
+            </button>
+            <a class="btn-ghost" href="tel:+393757087017" data-i18n="contact_call">Chiama ora</a>
+          </div>
+        </div>
+
+        <div class="map-card" data-animate>
+          <div class="map-frame" id="mapFrame">
+            <div class="map-consent" id="mapConsent">
+              <div class="map-consent-inner">
+                <strong>Google Maps</strong>
+                <p data-i18n="map_text">La mappa viene caricata solo su richiesta, cos&igrave; evitiamo il caricamento automatico di contenuti di terze parti.</p>
+                <button class="btn" type="button" id="loadMap" data-i18n="map_button">Carica la mappa</button>
+              </div>
+            </div>
+          </div>
+          <div class="map-caption">
+            <div>
+              <strong data-i18n="map_caption_title">Genova, via del Molo</strong>
+              <span>Via del Molo 77/79r, 16128 Genova GE</span>
+            </div>
+            <a class="btn-ghost" href="https://www.google.com/maps/search/?api=1&query=Via%20del%20Molo%2077%2079r%20Genova" target="_blank" rel="noopener noreferrer" data-i18n="map_open">Apri su Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <img class="footer-logo" src="molo20-logo.png" alt="Molo20" />
+        <p>
+          <span data-i18n="footer_line_1">Pizzeria trattoria a Genova</span><br />
+          Via del Molo 77/79r · 16128 Genova GE<br />
+          Tel: <a href="tel:+393757087017">+39 375 708 7017</a>
+        </p>
+        <p style="margin-top: 14px;">&copy; <span id="year"></span> Molo 2.0 · <span data-i18n="footer_rights">Tutti i diritti riservati</span></p>
+      </div>
+      <div class="footer-links" aria-label="Link footer">
+        <a href="#ristorante" data-i18n="nav_restaurant">Ristorante</a>
+        <a href="#storia" data-i18n="nav_story">La nostra storia</a>
+        <a href="#recensioni" data-i18n="nav_reviews">Recensioni</a>
+        <a href="#contatti" data-i18n="nav_contacts">Contatti</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="booking-sheet" id="bookingSheet" aria-hidden="true">
+    <button class="booking-sheet-backdrop" type="button" data-close-booking aria-label="Chiudi prenotazione"></button>
+    <div class="booking-sheet-dialog" role="dialog" aria-modal="true" aria-labelledby="bookingSheetTitle">
+      <button class="booking-sheet-close" type="button" data-close-booking aria-label="Chiudi">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M18 6 6 18M6 6l12 12" />
+        </svg>
+      </button>
+      <h2 id="bookingSheetTitle" data-i18n="booking_title">Prenota il tuo tavolo</h2>
+      <p class="booking-text" data-i18n="booking_text">Compila i dettagli e invia la richiesta su WhatsApp in pochi secondi.</p>
+      <form class="form booking-form">
+        <div class="field">
+          <label for="mobileName" data-i18n="form_name">Nome</label>
+          <input id="mobileName" name="name" autocomplete="name" placeholder="Mario Rossi" required />
+        </div>
+        <div class="field-grid">
+          <div class="field">
+            <label for="mobilePeople" data-i18n="form_people">Persone</label>
+            <input id="mobilePeople" name="people" type="number" inputmode="numeric" min="1" max="30" placeholder="2" required />
+          </div>
+          <div class="field">
+            <label for="mobileDate" data-i18n="form_date">Data</label>
+            <input id="mobileDate" name="date" type="date" required />
+          </div>
+          <div class="field">
+            <label for="mobileTime" data-i18n="form_time">Ora</label>
+            <input id="mobileTime" name="time" type="time" required />
+          </div>
+        </div>
+        <div class="field">
+          <label for="mobileNotes" data-i18n="form_notes">Note</label>
+          <textarea id="mobileNotes" name="notes" placeholder="Richieste particolari"></textarea>
+        </div>
+        <div class="booking-actions">
+          <button class="btn" type="submit">
+            <span class="whatsapp-mark"><svg class="btn-wa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35ZM12.04 21.4h-.01a9.84 9.84 0 0 1-5.02-1.38l-.36-.21-3.73.98 1-3.64-.24-.37A9.83 9.83 0 1 1 12.04 21.4Zm0-19.74A9.9 9.9 0 0 0 3.56 16.7L2.05 22.2l5.63-1.48a9.9 9.9 0 1 0 4.36-19.06Z"/></svg></span>
+            <span data-i18n="form_submit">Invia su WhatsApp</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="menu-sheet" id="menuSheet" aria-hidden="true">
+    <div class="menu-sheet-dialog" role="dialog" aria-modal="true" aria-labelledby="digitalMenuTitle">
+      <header class="menu-sheet-header">
+        <img class="menu-sheet-logo" src="molo20-logo.png" alt="Molo20" />
+        <button class="menu-sheet-close" type="button" data-close-menu aria-label="Chiudi menu">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12" /></svg>
+        </button>
+      </header>
+      <nav class="menu-categories" aria-label="Categorie del menu" data-menu-categories></nav>
+      <div class="digital-menu-content" id="digitalMenuTitle" data-menu-content></div>
+    </div>
+  </div>
+
+  <script>
+    const phoneNumber = "393757087017";
+    const toggle = document.querySelector(".menu-toggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const menuLinks = mobileMenu.querySelectorAll("a");
+    const year = document.getElementById("year");
+    const mapFrame = document.getElementById("mapFrame");
+    const mapConsent = document.getElementById("mapConsent");
+    const loadMap = document.getElementById("loadMap");
+    const bookingSheet = document.getElementById("bookingSheet");
+    const bookingOpeners = document.querySelectorAll("[data-open-booking]");
+    const bookingClosers = document.querySelectorAll("[data-close-booking]");
+    const langButtons = document.querySelectorAll(".lang-btn");
+    const proposalsTrack = document.querySelector("[data-proposals-track]");
+    const proposalCards = Array.from(document.querySelectorAll(".proposal-card"));
+    const proposalsCurrent = document.querySelector("[data-proposals-current]");
+    const proposalsPrev = document.querySelector("[data-proposals-prev]");
+    const proposalsNext = document.querySelector("[data-proposals-next]");
+    const menuSheet = document.getElementById("menuSheet");
+    const menuOpeners = document.querySelectorAll("[data-open-menu]");
+    const menuClosers = document.querySelectorAll("[data-close-menu]");
+    const menuCategories = document.querySelector("[data-menu-categories]");
+    const menuContent = document.querySelector("[data-menu-content]");
+    const heroSlides = Array.from(document.querySelectorAll("[data-hero-slide]"));
+    const heroTitle = document.querySelector("[data-hero-title]");
+
+    const heroTitles = [
+      "Sapori di Genova",
+      "La pizza, come deve essere",
+      "La tradizione genovese",
+      "Nel cuore di Genova",
+      "Una tradizione da condividere"
+    ];
+
+    let activeHeroSlide = 0;
+    let heroTimer;
+    let heroIsChanging = false;
+
+    function loadHeroSlide(index) {
+      const slide = heroSlides[index];
+      if (!slide || slide.dataset.loaded === "true" || index === 0) {
+        return Promise.resolve();
+      }
+
+      const source = slide.querySelector("source");
+      const image = slide.querySelector("img");
+      source.srcset = slide.dataset.mobile;
+      image.src = slide.dataset.desktop;
+      slide.dataset.loaded = "true";
+
+      if (image.decode) {
+        return image.decode().catch(() => {});
+      }
+      return new Promise((resolve) => {
+        image.addEventListener("load", resolve, { once: true });
+        image.addEventListener("error", resolve, { once: true });
+      });
+    }
+
+    async function advanceHero() {
+      if (heroIsChanging || heroSlides.length < 2) return;
+      heroIsChanging = true;
+      const nextIndex = (activeHeroSlide + 1) % heroSlides.length;
+      await loadHeroSlide(nextIndex);
+
+      heroTitle.classList.add("is-changing");
+      heroSlides[activeHeroSlide].classList.remove("is-active");
+      heroSlides[nextIndex].classList.add("is-active");
+
+      window.setTimeout(() => {
+        heroTitle.dataset.heroIndex = String(nextIndex);
+        heroTitle.textContent = heroTitles[nextIndex];
+        heroTitle.classList.remove("is-changing");
+      }, 300);
+
+      activeHeroSlide = nextIndex;
+      loadHeroSlide((activeHeroSlide + 1) % heroSlides.length);
+      window.setTimeout(() => { heroIsChanging = false; }, 850);
+    }
+
+    function startHeroCarousel() {
+      window.clearInterval(heroTimer);
+      heroTimer = window.setInterval(advanceHero, 4000);
+    }
+
+    if (heroSlides.length && heroTitle) {
+      heroSlides[0].dataset.loaded = "true";
+      loadHeroSlide(1);
+      startHeroCarousel();
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+          window.clearInterval(heroTimer);
+        } else {
+          startHeroCarousel();
+        }
+      });
+    }
+
+    const digitalMenu = [
+      { id: "pizze", title: "Le Pizze", note: "Tutte le pizze hanno pasta base con farina 00, acqua, olio EVO, sale, lievito e lievito pasta madre.", items: [
+        ["Marinara", "Pomodoro, aglio, origano", "7"], ["Marinara gorgonzola", "Pomodoro, aglio, origano e gorgonzola", "7,5"], ["Margherita", "Pomodoro, mozzarella, basilico fresco", "7,5"], ["Prosciutto cotto", "Pomodoro, mozzarella, prosciutto cotto", "8,5"], ["Funghi", "Pomodoro, mozzarella, champignon", "8,5"], ["Würstel", "Pomodoro, mozzarella, würstel", "8,5"], ["Patatine", "Pomodoro, mozzarella, patatine fritte", "8"], ["Sfiziosa", "Pomodoro, mozzarella, panna, burrata, mortadella, pistacchio", "11"], ["Napoli", "Pomodoro, mozzarella, acciughe, origano", "7,5"], ["Salsiccia", "Pomodoro, mozzarella, salsiccia", "8,5"], ["Stracchino rossa", "Pomodoro, stracchino", "8,5"], ["Biancaneve", "Stracchino, mozzarella", "8,5"], ["Salame dolce, piccante o 'nduja", "Pomodoro, mozzarella e salame a scelta", "8,5"], ["Pizza di mare", "Pomodoro, mozzarella, vongole, cozze, gamberetti", "12"], ["Tonno e cipolla", "Pomodoro, mozzarella, tonno, cipolla", "8,5"], ["Bismark", "Pomodoro, mozzarella, prosciutto cotto e uovo", "9"], ["Panna e speck", "Panna, speck", "9"], ["Vegetariana", "Pomodoro, mozzarella, zucchine, melanzane, peperoni", "8,5"], ["Quattro formaggi", "Bianca o rossa con mozzarella, stracchino, brie e gorgonzola", "8"], ["Valtellina", "Pomodoro, mozzarella, bresaola, rucola e grana", "9"], ["Pesto 2.0", "Stracchino, Pesto 2.0, patate, fagiolini", "8,5"], ["Parmigiana", "Pomodoro, mozzarella, melanzane, prosciutto cotto, formaggio, grana", "9,5"], ["Amatriciana", "Pomodoro, guanciale, pecorino", "9,5"], ["Regina", "Pomodoro, mozzarella, prosciutto cotto, funghi", "9"], ["Rustica", "Pomodoro, mozzarella, speck, zola", "9,5"], ["Ripiena", "Fantasia del pizzaiolo con cornicione ripieno", "10"], ["Appetitosa", "Pomodoro, scamorza, friarielli, salsiccia", "11"], ["Delicata", "Pomodoro, mozzarella, panna, stracchino, salmone", "12"], ["Bufala", "Pomodoro, mozzarella di bufala DOP, basilico fresco", "9"], ["Quattro stagioni", "Pomodoro, mozzarella, champignon, prosciutto cotto, carciofi, olive", "8,5"], ["Crudo", "Pomodoro, mozzarella, prosciutto crudo", "9"], ["Crudo e grana", "Pomodoro, mozzarella, prosciutto crudo, grana, basilico, olio EVO", "9"], ["Calzone", "Pomodoro, mozzarella, aglio, origano", "9"], ["Calzone farcito", "Pomodoro, mozzarella, aglio, origano e farcitura a scelta", "10"], ["Boscaiola", "Pomodoro, mozzarella, salsiccia, funghi", "9,5"], ["Pizza fritta", "Pomodoro, aglio, origano e farcitura a scelta", "10"], ["Capricciosa", "Pomodoro, mozzarella, prosciutto cotto, funghi, olive e carciofini", "8,5"]
+      ]},
+      { id: "focacce", title: "Focacce e Farinate", items: [
+        ["Focaccia al formaggio", "Stracchino", "10"], ["Focaccia pizzata", "Stracchino, pomodoro, acciughe, capperi, olive, origano", "11"], ["Focaccia formaggio Pesto 2.0", "Stracchino e Pesto 2.0", "11"], ["Focaccia formaggio crudo o cotto", "Stracchino e prosciutto", "11"], ["Focaccia formaggio 2.0", "Metà Pesto 2.0 e metà prosciutto crudo", "12"], ["Focaccia in salsa di noci", "Stracchino e salsa di noci", "11"], ["Focaccia formaggio salmone", "Stracchino e salmone", "12"], ["Farinata", "Acqua, olio EVO, farina di ceci, sale", "8"], ["Farinata con zola", "Con gorgonzola", "9"], ["Farinata con salsiccia", "Con salsiccia", "9"], ["Farinata con cipolle", "Con cipolle", "9"], ["Farinata con carciofi", "Con carciofi", "9"], ["Farinata mix", "Uno spicchio di ogni farinata", "11"]
+      ]},
+      { id: "specialita", title: "Specialità", items: [
+        ["Fugassette di Sori fritte - 2 pz", "Stracchino", "4,5"], ["Fugassette di Sori con cotto", "Stracchino e prosciutto cotto", "5"], ["Fugassette di Sori con Pesto 2.0", "Stracchino e Pesto 2.0", "5"], ["Tris fugassette", "Pesto, crudo e cotto", "6"], ["Panissette fritte", "Farina di ceci", "4"], ["Schiacciata con sale e origano", "", "4"], ["Schiacciata Molo 2.0", "Pomodoro, salsa, olio EVO e grana padano", "7,5"], ["Focaccia a pezzetti", "Con Pesto 2.0", "4"]
+      ]},
+      { id: "antipasti", title: "Antipasti e Sfizi", items: [
+        ["Torta di bietole", "", "5"], ["Torta di cipolle", "", "5"], ["Torta di zucchine", "", "5"], ["Polpettone genovese", "Senza carne", "5"], ["Misto torte", "", "7"], ["Misto della casa", "", "8"], ["Tagliere poca fame", "Salumi e formaggi con schiacciata", "8"], ["Tagliere sì ho fame", "Salumi e formaggi con schiacciata", "12"], ["Tagliere tanta fame", "Salumi e formaggi con schiacciata", "15"], ["Caprese", "Mozzarella e pomodori", "7"], ["Caprese di bufala", "Mozzarella di bufala e pomodori", "8"], ["Condigiun", "Tonno, patate, fagiolini, cipolla cruda e uovo sodo", "8,5"], ["Bresaola, rucola e grana", "", "10"], ["Crudo e melone", "", "10"], ["Crudo e bufala", "", "10"]
+      ]},
+      { id: "primi", title: "Primi Piatti", items: [
+        ["Trofie al Pesto 2.0", "Fagiolini e patate", "10"], ["Taglierini al Pesto 2.0", "Fagiolini e patate", "10"], ["Gnocchi al Pesto 2.0", "", "10"], ["Mandilli al Pesto 2.0", "", "10"], ["Pansoti", "Della tradizione in salsa di noci", "10"], ["Lasagna al forno", "Pesto o ragù", "10"], ["Parmigiana di melanzane", "", "8,5"], ["Ravioli al ragù", "", "10"], ["Spaghetti aglio, olio e peperoncino", "", "7"], ["Spaghetti al ragù", "", "7,5"], ["Spaghetti alla carbonara", "", "10"], ["Linguine allo scoglio", "In bianco o rosso", "13"], ["Taglierini panna e salmone", "", "12"], ["Taglierini alle vongole", "", "12"], ["Taglierini con i muscoli", "", "12"], ["Taglierini gamberi e zucchine", "", "12"], ["Taglierini Molo 2.0", "Gambero, burrata e pistacchio", "14"], ["Primo del giorno", "", "12"]
+      ]},
+      { id: "secondi", title: "Secondi Piatti", items: [
+        ["Cappon magro", "", "12"], ["Acciughe fritte", "", "9,5"], ["Fritto di calamari", "", "13"], ["Fritto misto di pesce", "", "15"], ["Burridda", "Seppie con piselli, patate e pomodoro", "9,5"], ["Cozze", "Impepate, al guazzetto o alla sorrentina", "9"], ["Trancio di pesce spada", "", "12"], ["Trancio di tonno alla griglia", "", "15"], ["Salmone alla piastra", "", "11"], ["Gamberoni alla griglia", "", "16"], ["Grigliata di pesce", "Gambero, salmone, pesce spada e calamaro", "22"], ["Tartare di salmone", "", "12"], ["Costata di manzo", "", "22"], ["Tartare di manzo", "", "12"], ["Tagliata di manzo", "Rucola e grana", "18"], ["Cotoletta alla milanese", "", "8"], ["Hamburger di Fassona con patatine", "", "11"], ["Hamburger Molo 2.0", "Panino", "14"]
+      ]},
+      { id: "contorni", title: "Contorni e Insalate", items: [
+        ["Insalata mista", "", "5"], ["Patate fritte casalinghe", "", "5"], ["Verdure grigliate", "", "5"], ["Insalata base", "Iceberg, rucola e pomodori", "5"], ["Aggiunte vegetali", "Mais, olive verdi, uovo sodo, fagiolini o cipolla", "0,5"], ["Aggiunte speciali", "Tonno, salmone, bufala, prosciutto crudo o cotto, acciughe", "2"]
+      ]},
+      { id: "dolci", title: "I Dolci", items: [
+        ["Fugassetta di Sori alla Nutella", "", "4,5"], ["Cheesecake", "", "5"], ["Focaccia tipo Recco alla Nutella", "", "4,5"], ["Tiramisù tradizionale o in coppa", "", "5"], ["Panna cotta", "Con glassa a scelta", "4"], ["Torta della nonna o limone", "", "5"], ["Sacher", "", "5"], ["Crostata", "", "4,5"], ["Sorbetto al limone", "", "4,5"], ["Sorbetto al limone con vodka", "", "5"], ["Macedonia", "", "4,5"], ["Macedonia con gelato", "", "5"], ["Coppa gelato affogato", "", "6,5"], ["Melone con gelato", "", "5"], ["Dolce del giorno", "", "5"]
+      ]},
+      { id: "bere", title: "Il Bere", items: [
+        ["Bibite in lattina 33 cl", "Coca Cola, Coca Zero, Fanta, Sprite", "3"], ["Tè limone o pesca 33 cl", "", "3"], ["Bibite in bottiglietta 33 cl", "Coca Cola, Fanta, Sprite", "3,5"], ["Succo di frutta 20 cl", "", "3,5"], ["Chinotto o gazzosa 27 cl", "", "3,5"], ["Acqua microfiltrata 75 cl", "Naturale o frizzante", "2"], ["Acqua 50 cl", "Naturale o frizzante", "1,5"], ["Spritz 2.0", "Aperol, Campari, Martini, Hugo o Limoncello", "7"], ["Beer Spritz", "", "7"], ["Gin tonic", "", "7"], ["Gin lemon", "", "7"], ["Vodka lemon", "", "7"], ["Americano", "", "7"], ["Negroni", "", "7"], ["Negrosky", "", "7"], ["Martini bianco, rosé o rosso", "", "7"],
+        ["Peroni Nastro Azzurro alla spina", "20 cl €3,5 · 40 cl €5,5 · 1 lt €8 · enorme €13", ""], ["Raffo grezza alla spina", "20 cl €4 · 40 cl €6 · 1 lt €9 · enorme €15", ""], ["Gran Riserva Rossa alla spina", "20 cl €4 · 40 cl €6 · 1 lt €9 · enorme €15", ""], ["Fuller's Golden Pride alla spina", "20 cl €4 · 40 cl €6 · 1 lt €9 · enorme €15", ""],
+        ["Peroni Nastro Azzurro 0.0", "Bottiglia 33 cl", "4,5"], ["Peroni Capri", "Bottiglia 33 cl", "4,5"], ["Peroni senza glutine", "Bottiglia 33 cl", "4,5"], ["Gran Riserva Doppio Malto", "Bottiglia 33 cl", "5"], ["St. Stefanus", "Bottiglia 33 cl", "5"],
+        ["Maltus Faber Bianca", "Birrissima artigianale ligure, bottiglia 33 cl", "5"], ["Maltus Faber Cippa l'Ipa", "Birrissima artigianale ligure, bottiglia 33 cl", "5"], ["Maltus Faber Amber", "Birrissima artigianale ligure, bottiglia 33 cl", "5"],
+        ["Caffè", "", "1,5"], ["Caffè americano", "", "2"], ["Cappuccino, orzo, ginseng o decaffeinato", "", "2"], ["Limoncello", "", "3"], ["Sambuca", "", "3"], ["Mirto", "", "3,5"], ["Nocino", "", "3,5"], ["Liquirizia", "", "3,5"], ["Whisky", "", "5"], ["Grappa morbida", "", "3"], ["Grappa barricata", "", "3"],
+        ["Vino sfuso bianco fermo", "25 cl €3,5 · 1/2 lt €6 · 1 lt €10", ""], ["Vino sfuso bianco mosso", "25 cl €3,5 · 1/2 lt €6 · 1 lt €10", ""], ["Vino sfuso rosso fermo", "25 cl €3,5 · 1/2 lt €6 · 1 lt €10", ""], ["Vino sfuso rosé mosso", "25 cl €3,5 · 1/2 lt €6 · 1 lt €10", ""],
+        ["Dolcetto Ovada", "Rocchin", "18"], ["Barbera d'Asti DOCG", "Duca di Aleramo", "16"], ["Nero d'Avola DOC", "Terre Forti", "18"], ["Rossese DOP", "Terrae", "21"], ["Rosso fermo Salento IGP", "Due Palme Risalita", "19"], ["Pigato", "Terrae", "21"], ["Vermentino", "Terrae", "19"], ["Bianchetta Bunassa", "Colline Genovesato", "22"], ["Gewürztraminer", "Tremisse", "21"], ["Ribolla ferma IGT", "Lorenzon Morer", "19"], ["Ribolla gialla mossa brut", "Casa Coller", "18"], ["Greco di Tufo DOCG", "Grotte Castelfranci", "19"], ["Moscato dolce", "Casa Coller", "16"], ["Prosecco", "Lenynae", "18"], ["Valdobbiadene DOCG", "Tre Ville", "23"], ["Ferrari Brut", "Trento D.O.C.", "30"], ["Champagne", "Moët & Chandon", "70"]
+      ]},
+      { id: "menu", title: "Menu e Formule", items: [
+        ["Menu fisso", "Primo, secondo, contorno, acqua, 1/4 vino e caffè", "13"], ["Giro pizza", "Disponibile tutte le sere, minimo 4 persone", "20"], ["Menu degustazione", "Antipasti della casa, primo e secondo in pirofila, sorbetto e caffè", "35"]
+      ]},
+      { id: "allergeni", title: "Allergeni", note: "In caso di allergie o intolleranze alimentari, avvisare il personale al momento dell'ordinazione.", items: [
+        ["1 · Cereali contenenti glutine", "Frumento, segale, orzo, avena, farro, kamut e prodotti derivati", ""], ["2 · Crostacei", "Crostacei e prodotti a base di crostacei", ""], ["3 · Uova", "Uova e prodotti a base di uova", ""], ["4 · Pesce", "Pesce e prodotti ittici", ""], ["5 · Arachidi", "Arachidi e prodotti a base di arachidi", ""], ["6 · Soia", "Soia e prodotti a base di soia", ""], ["7 · Latte", "Latte e prodotti a base di latte", ""], ["8 · Frutta a guscio", "Mandorle, nocciole, noci, pistacchi e loro prodotti", ""], ["9 · Sedano", "Sedano e prodotti contenenti sedano", ""], ["10 · Senape", "Senape e prodotti contenenti senape", ""], ["11 · Semi di sesamo", "Semi di sesamo e prodotti a base di semi di sesamo", ""], ["12 · Anidride solforosa e solfiti", "In concentrazioni superiori a 10 mg/kg o 10 mg/litro", ""], ["13 · Lupini", "Lupini e prodotti a base di lupini", ""], ["14 · Molluschi", "Molluschi e prodotti a base di molluschi", ""]
+      ]}
+    ];
+
+    const beerPairings = {
+      pizze: ["Gran Riserva Rossa", "Raffo Grezza", "Peroni Nastro Azzurro", "Peroni Capri", "Gran Riserva Doppio Malto", "Peroni Nastro Azzurro", "Raffo Grezza", "Gran Riserva Rossa", "Peroni Capri", "St. Stefanus", "Raffo Grezza", "Peroni Nastro Azzurro", "Fuller's Golden Pride", "Peroni Capri", "Peroni Nastro Azzurro", "Raffo Grezza", "Gran Riserva Rossa", "St. Stefanus", "Raffo Grezza", "Gran Riserva Rossa", "Peroni Nastro Azzurro", "Fuller's Golden Pride", "Raffo Grezza", "Peroni Nastro Azzurro", "St. Stefanus", "Gran Riserva Doppio Malto", "Peroni Nastro Azzurro", "Peroni Capri", "Raffo Grezza", "Gran Riserva Doppio Malto", "Gran Riserva Rossa", "St. Stefanus", "Peroni Nastro Azzurro", "Fuller's Golden Pride", "Raffo Grezza", "Peroni Nastro Azzurro", "Gran Riserva Rossa"],
+      focacce: ["Peroni Nastro Azzurro", "Raffo Grezza", "Peroni Nastro Azzurro", "Gran Riserva Rossa", "Fuller's Golden Pride", "Gran Riserva Doppio Malto", "Peroni Capri", "Peroni Nastro Azzurro", "Raffo Grezza", "Fuller's Golden Pride", "Peroni Nastro Azzurro", "Gran Riserva Rossa", ""],
+      specialita: ["Peroni Nastro Azzurro", "Raffo Grezza", "Gran Riserva Rossa", "Peroni Nastro Azzurro", "Fuller's Golden Pride", "Peroni Nastro Azzurro", "Peroni Nastro Azzurro", "Raffo Grezza"]
+    };
+
+    const translations = {
+      it: {
+        nav_restaurant: "Ristorante",
+        nav_story: "La nostra storia",
+        nav_reviews: "Recensioni",
+        nav_contacts: "Contatti",
+        hero_eyebrow: "A Genova, nel cuore del Molo",
+        hero_title_1: "Molo 2.0",
+        hero_text: "Pizza, cucina ligure e piatti di mare a due passi dal Porto Antico, in un locale informale pensato per pranzi, cene e tavoli pieni.",
+        hero_fact_1: "Pizza e cucina ligure",
+        hero_fact_2: "Via del Molo 77/79r",
+        hero_fact_3: "Pranzo e cena",
+        hero_booking_cta: "Prenota ora",
+        hero_call_cta: "Chiama ora",
+        hero_restaurant_cta: "Scopri il ristorante",
+        booking_title: "Prenota il tuo tavolo",
+        booking_text: "Compila i dettagli e invia la richiesta su WhatsApp in pochi secondi.",
+        form_name: "Nome",
+        form_people: "Persone",
+        form_date: "Data",
+        form_time: "Ora",
+        form_notes: "Note",
+        form_submit: "Invia su WhatsApp",
+        restaurant_eyebrow: "Ristorante",
+        restaurant_title: "Pizza, cucina ligure e tavola di mare.",
+        restaurant_text: "Molo 2.0 unisce l'anima della pizzeria alla trattoria genovese: piatti semplici, sapori riconoscibili e un servizio pensato per chi vive il centro, lavora in zona o passa dal Porto Antico.",
+        restaurant_card_title: "A pranzo e a cena, senza complicare le cose.",
+        restaurant_card_text: "Tavoli informali, cucina diretta e una posizione comoda in via del Molo, tra carruggi, Acquario e passeggiata sul porto.",
+        restaurant_cta_primary: "Le nostre proposte",
+        restaurant_cta_secondary: "Chiama il ristorante",
+        story_eyebrow: "La nostra storia",
+        story_title: "Nel cuore del Porto Antico di Genova.",
+        story_text_1: "Nel cuore del Porto Antico, <strong>Molo20 celebra i sapori autentici della tradizione genovese</strong> con ingredienti freschi e ricette tramandate nel tempo.",
+        story_text_2: "Pizze artigianali a lunga lievitazione, farinate e piatti liguri raccontano il territorio, insieme al nostro pesto genovese di produzione propria.",
+        story_closing: "<strong>Molo20: il sapore della tradizione, a portata di mano.</strong>",
+        story_cta: "Contattaci",
+        story_photo_title: "Via del Molo",
+        story_photo_text: "Uno spazio nero pronto per la fotografia del locale, da sostituire quando arriveranno le immagini definitive.",
+        reviews_eyebrow: "Recensioni",
+        reviews_title: "Le parole dei nostri clienti",
+        reviews_quote_1: "Pizza apprezzata, cucina varia e atmosfera conviviale nel cuore della zona del Porto Antico.",
+        reviews_quote_2: "Una tappa comoda per chi cerca pizza, piatti liguri e un conto corretto in centro.",
+        reviews_quote_3: "Personale gentile, posizione centrale e una proposta adatta sia al pranzo sia alla cena.",
+        reviews_verified: "Cliente verificato",
+        reviews_source: "Recensione online",
+        reviews_cta: "Lascia una recensione su Google",
+        reviews_note: "Ci vogliono solo pochi secondi",
+        contact_eyebrow: "Contatti",
+        contact_title: "Vieni a trovarci.",
+        contact_text: "Siamo in via del Molo 77/79 rosso, nel centro storico di Genova, vicino al Porto Antico.",
+        contact_address_label: "Indirizzo",
+        contact_phone_label: "Telefono",
+        contact_hours_label: "Orari",
+        contact_hours_value: "Pranzo e cena tutti i giorni",
+        contact_book: "Prenota ora",
+        contact_call: "Chiama ora",
+        map_text: "La mappa viene caricata solo su richiesta, cos&igrave; evitiamo il caricamento automatico di contenuti di terze parti.",
+        map_button: "Carica la mappa",
+        map_caption_title: "Genova, via del Molo",
+        map_open: "Apri su Google Maps",
+        footer_line_1: "Pizzeria trattoria a Genova",
+        footer_rights: "Tutti i diritti riservati"
+      },
+      en: {
+        nav_restaurant: "Restaurant",
+        nav_story: "Our story",
+        nav_reviews: "Reviews",
+        nav_contacts: "Contacts",
+        hero_eyebrow: "In Genoa, in the Molo district",
+        hero_title_1: "Molo 2.0",
+        hero_text: "Pizza, Ligurian cooking and seafood dishes a few steps from the Porto Antico, in an informal place made for lunches, dinners and lively tables.",
+        hero_fact_1: "Pizza and Ligurian cooking",
+        hero_fact_2: "Via del Molo 77/79r",
+        hero_fact_3: "Lunch and dinner",
+        hero_booking_cta: "Book now",
+        hero_call_cta: "Call now",
+        hero_restaurant_cta: "Discover the restaurant",
+        booking_title: "Book your table",
+        booking_text: "Fill in the details and send your request on WhatsApp in a few seconds.",
+        form_name: "Name",
+        form_people: "People",
+        form_date: "Date",
+        form_time: "Time",
+        form_notes: "Notes",
+        form_submit: "Send on WhatsApp",
+        restaurant_eyebrow: "Restaurant",
+        restaurant_title: "Pizza, Ligurian cooking and seafood plates.",
+        restaurant_text: "Molo 2.0 brings together a pizzeria spirit and Genoese trattoria comfort: simple dishes, familiar flavours and service for locals, workers nearby and people walking through the Porto Antico.",
+        restaurant_card_title: "For lunch and dinner, without making things complicated.",
+        restaurant_card_text: "Informal tables, direct cooking and a convenient position in via del Molo, between the old lanes, the Aquarium and the harbour walk.",
+        restaurant_cta_primary: "Our proposals",
+        restaurant_cta_secondary: "Call the restaurant",
+        story_eyebrow: "Our story",
+        story_title: "A neighbourhood address in the liveliest Genoa.",
+        story_text_1: "In the heart of the Porto Antico, <strong>Molo20 celebrates authentic Genoese flavours</strong> with fresh ingredients and time-honoured recipes.",
+        story_text_2: "Long-proved artisan pizzas, farinata and Ligurian dishes tell the story of our region, together with our own Genoese pesto.",
+        story_closing: "<strong>Molo20: the taste of tradition, close at hand.</strong>",
+        story_cta: "Contact us",
+        story_photo_title: "Via del Molo",
+        story_photo_text: "A black space ready for the restaurant photo, to be replaced when the final images arrive.",
+        reviews_eyebrow: "Reviews",
+        reviews_title: "What guests say",
+        reviews_quote_1: "Well-loved pizza, varied cooking and a convivial atmosphere in the heart of the Porto Antico area.",
+        reviews_quote_2: "A convenient stop for pizza, Ligurian dishes and fair value in the city centre.",
+        reviews_quote_3: "Kind staff, central location and a proposal suited to both lunch and dinner.",
+        reviews_verified: "Verified customer",
+        reviews_source: "Online review",
+        reviews_cta: "Leave a Google review",
+        reviews_note: "It only takes a few seconds",
+        contact_eyebrow: "Contacts",
+        contact_title: "Come and visit us.",
+        contact_text: "We are in via del Molo 77/79r, in Genoa's old town, near the Porto Antico.",
+        contact_address_label: "Address",
+        contact_phone_label: "Phone",
+        contact_hours_label: "Hours",
+        contact_hours_value: "Lunch and dinner every day",
+        contact_book: "Book now",
+        contact_call: "Call now",
+        map_text: "The map loads only on request, avoiding automatic loading of third-party content.",
+        map_button: "Load map",
+        map_caption_title: "Genoa, via del Molo",
+        map_open: "Open in Google Maps",
+        footer_line_1: "Pizzeria trattoria in Genoa",
+        footer_rights: "All rights reserved"
+      }
+    };
+
+    if (year) {
+      year.textContent = new Date().getFullYear();
+    }
+
+    const bookingDate = document.getElementById("mobileDate");
+    if (bookingDate) {
+      const today = new Date();
+      const localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000)
+        .toISOString()
+        .slice(0, 10);
+      bookingDate.min = localToday;
+    }
+
+    function setLanguage(language) {
+      const dictionary = translations[language] || translations.it;
+      document.documentElement.lang = language;
+
+      document.querySelectorAll("[data-i18n]").forEach((element) => {
+        const key = element.dataset.i18n;
+        if (!dictionary[key]) {
+          return;
+        }
+        if (dictionary[key].includes("&") || dictionary[key].includes("<")) {
+          element.innerHTML = dictionary[key];
+        } else {
+          element.textContent = dictionary[key];
+        }
+      });
+
+      langButtons.forEach((button) => {
+        button.classList.toggle("active", button.dataset.lang === language);
+      });
+    }
+
+    langButtons.forEach((button) => {
+      button.addEventListener("click", () => setLanguage(button.dataset.lang));
+    });
+
+    function renderDigitalMenu(activeId = digitalMenu[0].id) {
+      if (!menuCategories || !menuContent) return;
+      menuCategories.innerHTML = digitalMenu.map((section) => `
+        <button class="menu-category${section.id === activeId ? " active" : ""}" type="button" data-menu-category="${section.id}">${section.title}</button>
+      `).join("");
+      menuContent.innerHTML = digitalMenu.map((section) => `
+        <section class="digital-menu-section" data-menu-section="${section.id}" ${section.id === activeId ? "" : "hidden"}>
+          <h2 class="digital-menu-title">${section.title}</h2>
+          <div class="menu-items">${section.items.map(([name, description, price], index) => `
+            <article class="menu-item">
+              <h4>${name}</h4>${price ? `<span class="menu-price">€ ${price}</span>` : ""}
+              ${description ? `<p>${description}</p>` : ""}
+              ${beerPairings[section.id]?.[index] ? `<span class="beer-pairing">Birra consigliata · ${beerPairings[section.id][index]}</span>` : ""}
+            </article>
+          `).join("")}</div>
+          ${section.note ? `<p class="menu-note">${section.note}</p>` : ""}
+        </section>
+      `).join("");
+      menuCategories.querySelectorAll("[data-menu-category]").forEach((button) => {
+        button.addEventListener("click", () => {
+          renderDigitalMenu(button.dataset.menuCategory);
+          menuContent.scrollTop = 0;
+        });
+      });
+    }
+
+    function openDigitalMenu() {
+      renderDigitalMenu();
+      document.body.classList.add("menu-sheet-open");
+      menuSheet.setAttribute("aria-hidden", "false");
+      menuSheet.querySelector(".menu-sheet-close").focus();
+    }
+
+    function closeDigitalMenu() {
+      document.body.classList.remove("menu-sheet-open");
+      menuSheet.setAttribute("aria-hidden", "true");
+    }
+
+    menuOpeners.forEach((button) => button.addEventListener("click", openDigitalMenu));
+    menuClosers.forEach((button) => button.addEventListener("click", closeDigitalMenu));
+
+    if (proposalsTrack && proposalCards.length && proposalsCurrent && proposalsPrev && proposalsNext) {
+      const cardStep = () => {
+        const gap = parseFloat(getComputedStyle(proposalsTrack).gap) || 0;
+        return proposalCards[0].getBoundingClientRect().width + gap;
+      };
+
+      const updateProposalCounter = () => {
+        const index = Math.min(
+          proposalCards.length,
+          Math.max(1, Math.round(proposalsTrack.scrollLeft / cardStep()) + 1)
+        );
+        proposalsCurrent.textContent = String(index).padStart(2, "0");
+      };
+
+      proposalsPrev.addEventListener("click", () => {
+        proposalsTrack.scrollBy({ left: -cardStep(), behavior: "smooth" });
+      });
+      proposalsNext.addEventListener("click", () => {
+        proposalsTrack.scrollBy({ left: cardStep(), behavior: "smooth" });
+      });
+      proposalsTrack.addEventListener("scroll", updateProposalCounter, { passive: true });
+      window.addEventListener("resize", updateProposalCounter);
+      updateProposalCounter();
+    }
+
+    if (toggle && mobileMenu) {
+      toggle.addEventListener("click", () => {
+        const isOpen = mobileMenu.classList.toggle("open");
+        document.body.classList.toggle("menu-open", isOpen);
+        toggle.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      menuLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("open");
+          document.body.classList.remove("menu-open");
+          toggle.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
+
+    function buildWhatsAppMessage(form) {
+      const formData = new FormData(form);
+      const values = {
+        name: formData.get("name") || "",
+        people: formData.get("people") || "",
+        date: formData.get("date") || "",
+        time: formData.get("time") || "",
+        notes: formData.get("notes") || ""
+      };
+      const lines = [
+        "Ciao Molo 2.0, vorrei prenotare un tavolo.",
+        values.name ? `Nome: ${values.name}` : "",
+        values.people ? `Persone: ${values.people}` : "",
+        values.date ? `Data: ${values.date}` : "",
+        values.time ? `Ora: ${values.time}` : "",
+        values.notes ? `Note: ${values.notes}` : ""
+      ].filter(Boolean);
+
+      return lines.join("\n");
+    }
+
+    document.querySelectorAll(".booking-form").forEach((form) => {
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const message = encodeURIComponent(buildWhatsAppMessage(form));
+        window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank", "noopener,noreferrer");
+      });
+    });
+
+    function openBooking() {
+      if (!bookingSheet) {
+        return;
+      }
+      bookingSheet.setAttribute("aria-hidden", "false");
+      document.body.classList.add("booking-modal-open");
+    }
+
+    function closeBooking() {
+      if (!bookingSheet) {
+        return;
+      }
+      bookingSheet.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("booking-modal-open");
+    }
+
+    bookingOpeners.forEach((button) => button.addEventListener("click", openBooking));
+    bookingClosers.forEach((button) => button.addEventListener("click", closeBooking));
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeBooking();
+        closeDigitalMenu();
+        if (mobileMenu) {
+          mobileMenu.classList.remove("open");
+          document.body.classList.remove("menu-open");
+          if (toggle) {
+            toggle.setAttribute("aria-expanded", "false");
+          }
+        }
+      }
+    });
+
+    if (loadMap && mapFrame && mapConsent) {
+      loadMap.addEventListener("click", () => {
+        const iframe = document.createElement("iframe");
+        iframe.title = "Mappa Molo 2.0 Genova";
+        iframe.loading = "lazy";
+        iframe.referrerPolicy = "no-referrer-when-downgrade";
+        iframe.src = "https://www.google.com/maps?q=Via%20del%20Molo%2077%2079r%20Genova&output=embed";
+        mapFrame.appendChild(iframe);
+        mapConsent.remove();
+      });
+    }
+
+    const animated = document.querySelectorAll("[data-animate]");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.16 }
+      );
+
+      animated.forEach((element) => observer.observe(element));
+    } else {
+      animated.forEach((element) => element.classList.add("visible"));
+    }
+  </script>
+</body>
+</html>
