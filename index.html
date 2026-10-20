@@ -2149,6 +2149,10 @@
         text-shadow: 0 2px 18px rgba(0, 0, 0, 0.9);
       }
 
+      .hero-facts {
+        display: none;
+      }
+
       .hero-call-cta {
         display: none;
       }
@@ -2157,14 +2161,15 @@
         display: inline-flex;
         position: fixed;
         z-index: 240;
-        left: 50%;
-        bottom: calc(12px + env(safe-area-inset-bottom));
-        width: min(270px, calc(100vw - 32px));
-        min-height: 48px;
-        padding: 10px 18px;
-        font-size: 0.8rem;
-        transform: translateX(-50%);
-        box-shadow: 0 12px 34px rgba(0, 0, 0, 0.38);
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        min-height: calc(58px + env(safe-area-inset-bottom));
+        padding: 11px 20px calc(11px + env(safe-area-inset-bottom));
+        border-radius: 0;
+        font-size: 0.88rem;
+        transform: none;
+        box-shadow: 0 -10px 34px rgba(0, 0, 0, 0.34);
       }
 
       .hero-booking-cta .whatsapp-mark,
@@ -2207,10 +2212,14 @@
       }
 
       .review-grid {
-        grid-auto-columns: minmax(92%, 1fr);
+        grid-auto-columns: 100%;
+        gap: 20px;
         align-items: stretch;
         overscroll-behavior-inline: contain;
+        scroll-padding-inline: 0;
       }
+
+      .review { scroll-snap-align: start; }
 
       .reviews-cta-wrap .btn {
         min-height: 42px;
@@ -2223,10 +2232,11 @@
       }
 
       .contact-card {
-        padding: 24px 18px;
-        background: rgba(255, 255, 255, 0.035);
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        box-shadow: 0 16px 38px rgba(0, 0, 0, 0.2);
+        padding: 0;
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
       }
 
       .contact-card .section-title { display: none; }
@@ -2245,8 +2255,67 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.11);
       }
 
+      .contact-item-icon.whatsapp-contact-mark {
+        border-radius: 0;
+        background: transparent url("whatsapp-mark.png") center / 27px 27px no-repeat !important;
+        box-shadow: none;
+      }
+
+      .contact-item-icon.whatsapp-contact-mark svg {
+        display: none !important;
+      }
+
       .footer-links {
         gap: 10px 16px;
+      }
+
+      .footer {
+        position: relative;
+        padding: 20px 0 18px;
+        border-top: 0;
+        background: linear-gradient(180deg, #090909 0%, #030303 100%);
+      }
+
+      .footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 54px;
+        height: 1px;
+        transform: translateX(-50%);
+        background: var(--gold);
+      }
+
+      .footer-grid {
+        gap: 10px;
+      }
+
+      .footer-logo {
+        width: 78px;
+        height: 42px;
+        margin-bottom: 1px;
+      }
+
+      .footer-links {
+        align-items: center;
+        justify-content: center;
+        gap: 8px 13px;
+        color: rgba(247, 239, 228, 0.72);
+        font-family: var(--display-font) !important;
+        font-size: 0.73rem;
+        font-weight: 600;
+      }
+
+      .footer-links a {
+        font-family: var(--display-font) !important;
+      }
+
+      .btn,
+      .btn *,
+      .btn-ghost,
+      .btn-ghost * {
+        font-family: var(--display-font) !important;
       }
     }
 
