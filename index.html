@@ -1563,7 +1563,7 @@
 
     @media (max-width: 640px) {
       body {
-        padding-bottom: calc(66px + env(safe-area-inset-bottom));
+        padding-bottom: calc(78px + env(safe-area-inset-bottom));
       }
 
       .topbar {
@@ -2161,12 +2161,13 @@
         display: inline-flex;
         position: fixed;
         z-index: 240;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        min-height: calc(58px + env(safe-area-inset-bottom));
-        padding: 11px 20px calc(11px + env(safe-area-inset-bottom));
-        border-radius: 0;
+        left: 12px;
+        bottom: calc(10px + env(safe-area-inset-bottom));
+        width: calc(100% - 24px);
+        min-height: 52px;
+        padding: 11px 20px;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 999px;
         font-size: 0.88rem;
         transform: none;
         box-shadow: 0 -10px 34px rgba(0, 0, 0, 0.34);
@@ -2201,8 +2202,11 @@
       }
 
       .review {
-        min-height: 210px;
-        aspect-ratio: 1.55 / 1;
+        width: 100%;
+        min-height: 190px;
+        aspect-ratio: auto;
+        padding: 20px;
+        overflow: hidden;
         background: rgba(255, 255, 255, 0.055);
         border: 1px solid rgba(255, 255, 255, 0.18);
         box-shadow: 0 14px 34px rgba(0, 0, 0, 0.2);
@@ -2212,14 +2216,19 @@
       }
 
       .review-grid {
-        grid-auto-columns: 100%;
+        display: grid;
+        grid-auto-flow: row;
+        grid-template-columns: 1fr;
+        grid-auto-columns: auto;
         gap: 20px;
         align-items: stretch;
-        overscroll-behavior-inline: contain;
-        scroll-padding-inline: 0;
+        overflow: visible;
+        scroll-snap-type: none;
       }
 
-      .review { scroll-snap-align: start; }
+      .review-top { margin-bottom: 14px; }
+      .review p { margin-bottom: 18px; line-height: 1.55; }
+      .review footer { margin-top: auto; }
 
       .reviews-cta-wrap .btn {
         min-height: 42px;
@@ -2256,13 +2265,21 @@
       }
 
       .contact-item-icon.whatsapp-contact-mark {
-        border-radius: 0;
-        background: transparent url("whatsapp-mark.png") center / 27px 27px no-repeat !important;
+        border-radius: 14px;
+        background: linear-gradient(145deg, var(--gold-light), var(--gold)) !important;
         box-shadow: none;
       }
 
       .contact-item-icon.whatsapp-contact-mark svg {
         display: none !important;
+      }
+
+      .contact-item-icon.whatsapp-contact-mark::before {
+        content: "" !important;
+        display: block !important;
+        width: 27px;
+        height: 27px;
+        background: url("whatsapp-mark.png") center / contain no-repeat;
       }
 
       .footer-links {
@@ -2271,7 +2288,7 @@
 
       .footer {
         position: relative;
-        padding: 20px 0 18px;
+        padding: 28px 0 18px;
         border-top: 0;
         background: linear-gradient(180deg, #090909 0%, #030303 100%);
       }
@@ -2288,13 +2305,61 @@
       }
 
       .footer-grid {
-        gap: 10px;
+        gap: 11px;
       }
 
       .footer-logo {
-        width: 78px;
-        height: 42px;
-        margin-bottom: 1px;
+        width: 126px;
+        height: 64px;
+        margin-bottom: 0;
+      }
+
+      .footer-mobile-details {
+        display: grid;
+        justify-items: center;
+        gap: 11px;
+        text-align: center;
+      }
+
+      .footer-tagline {
+        margin: 0;
+        color: var(--ivory);
+        font-family: var(--display-font) !important;
+        font-size: 1.05rem;
+        line-height: 1.25;
+      }
+
+      .footer-quick-links {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .footer-round-link {
+        width: 36px;
+        height: 36px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255, 255, 255, 0.34);
+        border-radius: 50%;
+        color: var(--ivory);
+      }
+
+      .footer-round-link svg {
+        width: 16px;
+        height: 16px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.6;
+      }
+
+      .footer-company {
+        margin: 0;
+        max-width: 34ch;
+        color: rgba(247, 239, 228, 0.5);
+        font-size: 0.58rem;
+        line-height: 1.5;
       }
 
       .footer-links {
@@ -2357,9 +2422,15 @@
       font-weight: 600;
     }
 
+    .footer-mobile-details { display: none; }
+
     @media (max-width: 640px) {
       .contact-heading-mobile { display: block; }
       .mobile-fixed-booking { display: inline-flex; }
+      .footer { padding: 28px 0 18px; }
+      .footer-grid { gap: 11px; }
+      .footer-logo { width: 126px; height: 64px; margin-bottom: 0; }
+      .footer-mobile-details { display: grid; }
     }
   </style>
 </head>
@@ -2673,6 +2744,18 @@
   <footer class="footer">
     <div class="container footer-grid">
       <img class="footer-logo" src="molo20-logo.png" alt="Molo20" />
+      <div class="footer-mobile-details">
+        <p class="footer-tagline">Pizza, cucina ligure<br />e sapori di mare.</p>
+        <div class="footer-quick-links">
+          <a class="footer-round-link" href="tel:+393757087017" aria-label="Chiama Molo20">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 16.5v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 1.12 3.8 2 2 0 0 1 3.11 1.6h3a2 2 0 0 1 2 1.72c.12.9.34 1.78.65 2.62a2 2 0 0 1-.45 2.11L7.04 9.32a16 16 0 0 0 7.64 7.64l1.27-1.27a2 2 0 0 1 2.11-.45c.84.31 1.72.53 2.62.65A2 2 0 0 1 21 16.5Z" /></svg>
+          </a>
+          <a class="footer-round-link" href="#top" aria-label="Torna all'inizio">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20V4M6 10l6-6 6 6" /></svg>
+          </a>
+        </div>
+        <p class="footer-company">Ristorante Molo S.n.c. di Nadim Mahmud &amp; C.<br />P. IVA 03090410998 · Via del Molo 77/79r, Genova</p>
+      </div>
       <div class="footer-links" aria-label="Link footer">
         <a href="privacy-policy.html">Privacy policy</a>
         <a href="cookie-policy.html">Cookie policy</a>
