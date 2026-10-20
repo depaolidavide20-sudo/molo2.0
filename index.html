@@ -2087,6 +2087,149 @@
         transform: none;
       }
     }
+
+    /* Mobile refinements */
+    .hero-mobile-text,
+    .story-mobile-summary,
+    .story-mobile-cta {
+      display: none;
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        gap: 8px;
+      }
+
+      .nav-actions {
+        margin-left: auto;
+        gap: 7px;
+      }
+
+      .nav-actions .lang-switcher {
+        display: inline-flex;
+        gap: 4px;
+      }
+
+      .nav-actions .lang-btn {
+        width: 31px;
+        height: 31px;
+        font-size: 0.68rem;
+      }
+
+      .hero-media::after {
+        background:
+          linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.08) 34%, rgba(0, 0, 0, 0.55) 76%, rgba(0, 0, 0, 0.7));
+      }
+
+      .hero-copy {
+        padding: 30px 20px;
+        text-shadow: 0 2px 16px rgba(0, 0, 0, 0.76);
+      }
+
+      .hero-copy .hero-desktop-text {
+        display: none;
+      }
+
+      .hero-mobile-text {
+        display: block;
+        max-width: 31ch !important;
+        font-size: 0.91rem !important;
+        line-height: 1.5 !important;
+        color: rgba(255, 255, 255, 0.96) !important;
+        font-weight: 600;
+      }
+
+      .hero-copy h1,
+      .hero-copy .eyebrow,
+      .hero-fact {
+        text-shadow: 0 2px 18px rgba(0, 0, 0, 0.9);
+      }
+
+      .hero-call-cta {
+        margin-top: 20px;
+      }
+
+      .hero-call-cta .hero-booking-cta {
+        min-width: 0;
+        min-height: 42px;
+        padding: 9px 15px;
+        font-size: 0.75rem;
+      }
+
+      .hero-booking-cta .whatsapp-mark,
+      .hero-booking-cta .btn-wa-icon {
+        width: 20px !important;
+        height: 20px !important;
+      }
+
+      .story-copy .story-desktop-text,
+      .story-copy .story-cta-row {
+        display: none;
+      }
+
+      .story-mobile-summary {
+        display: block;
+        margin-bottom: 0;
+      }
+
+      .story-mobile-cta {
+        display: flex;
+        justify-content: center;
+        margin-top: 18px;
+      }
+
+      .story-mobile-cta .btn {
+        min-height: 42px;
+        padding: 9px 18px;
+        font-size: 0.78rem;
+      }
+
+      .review {
+        background: rgba(255, 255, 255, 0.055);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.2);
+      }
+
+      .reviews-cta-wrap .btn {
+        min-height: 42px;
+        padding: 9px 16px;
+        font-size: 0.78rem;
+      }
+
+      .reviews-note {
+        display: none;
+      }
+
+      .contact-card {
+        padding: 24px 18px;
+        background: rgba(255, 255, 255, 0.035);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        box-shadow: 0 16px 38px rgba(0, 0, 0, 0.2);
+      }
+
+      .contact-card .section-title {
+        text-align: center;
+      }
+
+      .contact-card .section-eyebrow {
+        margin-inline: auto;
+      }
+
+      .contact-card .section-title p {
+        max-width: 34ch;
+        margin-inline: auto;
+      }
+
+      .contact-list li {
+        padding: 11px 10px;
+        background: rgba(255, 255, 255, 0.045);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.11);
+      }
+
+      .footer-links {
+        gap: 10px 16px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -2153,9 +2296,10 @@
         <div class="hero-copy" data-animate>
           <span class="eyebrow" data-i18n="hero_eyebrow">A Genova, nel cuore del Molo</span>
           <h1 data-hero-title data-hero-index="0" aria-live="polite">Sapori di Genova</h1>
-          <p data-i18n="hero_text">
+          <p class="hero-desktop-text" data-i18n="hero_text">
             Pizza, cucina ligure e piatti di mare a due passi dal Porto Antico, in un locale informale pensato per pranzi, cene e tavoli pieni.
           </p>
+          <p class="hero-mobile-text" data-i18n="hero_mobile_text">Pizza, cucina ligure e mare nel cuore di Genova.</p>
           <div class="hero-facts" aria-label="Punti forti">
             <span class="hero-fact" data-i18n="hero_fact_1">Pizza e cucina ligure</span>
             <span class="hero-fact" data-i18n="hero_fact_2">Via del Molo 77/79r</span>
@@ -2185,19 +2329,19 @@
 
         <div class="proposals-menu" id="proposte" data-animate>
           <div class="proposals-track" data-proposals-track aria-label="Le nostre proposte">
-            <figure class="proposal-card"><img src="carousel/proposta-01.jpg" alt="Pizza ai funghi" loading="lazy" /><figcaption><strong>Pizza ai funghi</strong><span>01</span></figcaption></figure>
-            <figure class="proposal-card"><img src="carousel/proposta-02.jpg" alt="Mandilli al pesto" loading="lazy" /><figcaption><strong>Mandilli al pesto</strong><span>02</span></figcaption></figure>
-            <figure class="proposal-card"><img src="carousel/proposta-03.jpg" alt="Pizza con mortadella, burrata e pesto" loading="lazy" /><figcaption><strong>Mortadella, burrata e pesto</strong><span>03</span></figcaption></figure>
-            <figure class="proposal-card"><img src="carousel/proposta-04.jpg" alt="Pansoti in salsa di noci" loading="lazy" /><figcaption><strong>Pansoti in salsa di noci</strong><span>04</span></figcaption></figure>
-            <figure class="proposal-card"><img src="carousel/proposta-05.jpg" alt="Pizza al pesto" loading="lazy" /><figcaption><strong>Pizza al pesto</strong><span>05</span></figcaption></figure>
-            <figure class="proposal-card"><img src="carousel/proposta-06.jpg" alt="Spaghetti allo scoglio" loading="lazy" /><figcaption><strong>Spaghetti allo scoglio</strong><span>06</span></figcaption></figure>
-            <figure class="proposal-card"><img src="carousel/proposta-07.jpg" alt="Focaccia al formaggio" loading="lazy" /><figcaption><strong>Focaccia al formaggio</strong><span>07</span></figcaption></figure>
-            <figure class="proposal-card"><img src="carousel/proposta-08.jpg" alt="Spaghetti alle vongole" loading="lazy" /><figcaption><strong>Spaghetti alle vongole</strong><span>08</span></figcaption></figure>
-            <figure class="proposal-card"><img src="carousel/proposta-09.jpg" alt="Pizza con salsiccia" loading="lazy" /><figcaption><strong>Pizza con salsiccia</strong><span>09</span></figcaption></figure>
-            <figure class="proposal-card"><img src="carousel/proposta-10.jpg" alt="Carbonara" loading="lazy" /><figcaption><strong>Carbonara</strong><span>10</span></figcaption></figure>
-            <figure class="proposal-card"><img src="carousel/proposta-11.jpg" alt="Fritto di calamari" loading="lazy" /><figcaption><strong>Fritto di calamari</strong><span>11</span></figcaption></figure>
-            <figure class="proposal-card"><img src="carousel/proposta-12.jpg" alt="Calzone al cioccolato" loading="lazy" /><figcaption><strong>Calzone al cioccolato</strong><span>12</span></figcaption></figure>
-            <figure class="proposal-card"><img src="carousel/proposta-13.jpg" alt="Torta della nonna" loading="lazy" /><figcaption><strong>Torta della nonna</strong><span>13</span></figcaption></figure>
+            <figure class="proposal-card"><img src="proposta-01.jpg" alt="Pizza ai funghi" loading="lazy" /><figcaption><strong>Pizza ai funghi</strong><span>01</span></figcaption></figure>
+            <figure class="proposal-card"><img src="proposta-02.jpg" alt="Mandilli al pesto" loading="lazy" /><figcaption><strong>Mandilli al pesto</strong><span>02</span></figcaption></figure>
+            <figure class="proposal-card"><img src="proposta-03.jpg" alt="Pizza con mortadella, burrata e pesto" loading="lazy" /><figcaption><strong>Mortadella, burrata e pesto</strong><span>03</span></figcaption></figure>
+            <figure class="proposal-card"><img src="proposta-04.jpg" alt="Pansoti in salsa di noci" loading="lazy" /><figcaption><strong>Pansoti in salsa di noci</strong><span>04</span></figcaption></figure>
+            <figure class="proposal-card"><img src="proposta-05.jpg" alt="Pizza al pesto" loading="lazy" /><figcaption><strong>Pizza al pesto</strong><span>05</span></figcaption></figure>
+            <figure class="proposal-card"><img src="proposta-06.jpg" alt="Spaghetti allo scoglio" loading="lazy" /><figcaption><strong>Spaghetti allo scoglio</strong><span>06</span></figcaption></figure>
+            <figure class="proposal-card"><img src="proposta-07.jpg" alt="Focaccia al formaggio" loading="lazy" /><figcaption><strong>Focaccia al formaggio</strong><span>07</span></figcaption></figure>
+            <figure class="proposal-card"><img src="proposta-08.jpg" alt="Spaghetti alle vongole" loading="lazy" /><figcaption><strong>Spaghetti alle vongole</strong><span>08</span></figcaption></figure>
+            <figure class="proposal-card"><img src="proposta-09.jpg" alt="Pizza con salsiccia" loading="lazy" /><figcaption><strong>Pizza con salsiccia</strong><span>09</span></figcaption></figure>
+            <figure class="proposal-card"><img src="proposta-10.jpg" alt="Carbonara" loading="lazy" /><figcaption><strong>Carbonara</strong><span>10</span></figcaption></figure>
+            <figure class="proposal-card"><img src="proposta-11.jpg" alt="Fritto di calamari" loading="lazy" /><figcaption><strong>Fritto di calamari</strong><span>11</span></figcaption></figure>
+            <figure class="proposal-card"><img src="proposta-12.jpg" alt="Calzone al cioccolato" loading="lazy" /><figcaption><strong>Calzone al cioccolato</strong><span>12</span></figcaption></figure>
+            <figure class="proposal-card"><img src="proposta-13.jpg" alt="Torta della nonna" loading="lazy" /><figcaption><strong>Torta della nonna</strong><span>13</span></figcaption></figure>
           </div>
           <div class="proposals-footer">
             <p class="proposals-counter"><span data-proposals-current>01</span> / 13</p>
@@ -2224,15 +2368,19 @@
             <span class="section-eyebrow" data-i18n="story_eyebrow">La nostra storia</span>
             <h2 data-i18n="story_title">Nel cuore del Porto Antico di Genova.</h2>
           </div>
-          <p data-i18n="story_text_1">Nel cuore del Porto Antico, <strong>Molo20 celebra i sapori autentici della tradizione genovese</strong> con ingredienti freschi e ricette tramandate nel tempo.</p>
-          <p data-i18n="story_text_2">Pizze artigianali a lunga lievitazione, farinate e piatti liguri raccontano il territorio, insieme al nostro pesto genovese di produzione propria.</p>
-          <p data-i18n="story_closing"><strong>Molo20: il sapore della tradizione, a portata di mano.</strong></p>
+          <p class="story-desktop-text" data-i18n="story_text_1">Nel cuore del Porto Antico, <strong>Molo20 celebra i sapori autentici della tradizione genovese</strong> con ingredienti freschi e ricette tramandate nel tempo.</p>
+          <p class="story-desktop-text" data-i18n="story_text_2">Pizze artigianali a lunga lievitazione, farinate e piatti liguri raccontano il territorio, insieme al nostro pesto genovese di produzione propria.</p>
+          <p class="story-desktop-text" data-i18n="story_closing"><strong>Molo20: il sapore della tradizione, a portata di mano.</strong></p>
+          <p class="story-mobile-summary" data-i18n="story_mobile_text">Dal Porto Antico portiamo in tavola pizza artigianale, pesto e autentici sapori genovesi.</p>
           <div class="story-cta-row">
             <a class="btn" href="#contatti" data-i18n="story_cta">Contattaci</a>
           </div>
         </div>
 
         <div class="story-photo-card" role="img" aria-label="Ingresso della pizzeria trattoria Molo 2.0 in via del Molo a Genova" data-animate></div>
+        <div class="story-mobile-cta">
+          <a class="btn" href="#contatti" data-i18n="story_cta">Contattaci</a>
+        </div>
       </div>
     </section>
 
@@ -2284,7 +2432,7 @@
         <div class="reviews-cta-wrap" data-animate>
           <a class="btn" href="https://www.google.com/search?q=Pizzeria+Trattoria+Molo+2.0+Via+del+Molo+77+79r+Genova+recensioni" target="_blank" rel="noopener noreferrer">
             <svg class="google-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M21.6 12.23c0-.71-.06-1.4-.18-2.05H12v3.87h5.38a4.6 4.6 0 0 1-2 3.02v2.51h3.24c1.9-1.75 2.98-4.33 2.98-7.35Z"/><path fill="#34A853" d="M12 22c2.7 0 4.96-.9 6.62-2.42l-3.24-2.51c-.9.6-2.05.96-3.38.96-2.6 0-4.81-1.76-5.6-4.12H3.05v2.59A10 10 0 0 0 12 22Z"/><path fill="#FBBC05" d="M6.4 13.91A6.02 6.02 0 0 1 6.09 12c0-.66.11-1.31.31-1.91V7.5H3.05A10 10 0 0 0 2 12c0 1.61.39 3.14 1.05 4.5l3.35-2.59Z"/><path fill="#EA4335" d="M12 5.97c1.47 0 2.79.51 3.82 1.5l2.87-2.87A9.62 9.62 0 0 0 12 2a10 10 0 0 0-8.95 5.5l3.35 2.59c.79-2.36 3-4.12 5.6-4.12Z"/></svg>
-            <span data-i18n="reviews_cta">Lascia una recensione su Google</span>
+            <span data-i18n="reviews_cta">Lascia un recensione</span>
           </a>
           <div class="reviews-note" data-i18n="reviews_note">Ci vogliono solo pochi secondi</div>
         </div>
@@ -2394,10 +2542,6 @@
         <p style="margin-top: 14px;">&copy; <span id="year"></span> Molo 2.0 · <span data-i18n="footer_rights">Tutti i diritti riservati</span></p>
       </div>
       <div class="footer-links" aria-label="Link footer">
-        <a href="#ristorante" data-i18n="nav_restaurant">Ristorante</a>
-        <a href="#storia" data-i18n="nav_story">La nostra storia</a>
-        <a href="#recensioni" data-i18n="nav_reviews">Recensioni</a>
-        <a href="#contatti" data-i18n="nav_contacts">Contatti</a>
         <a href="privacy-policy.html">Privacy policy</a>
         <a href="cookie-policy.html">Cookie policy</a>
         <a href="note-legali.html">Note legali</a>
@@ -2617,6 +2761,7 @@
         hero_eyebrow: "A Genova, nel cuore del Molo",
         hero_title_1: "Molo 2.0",
         hero_text: "Pizza, cucina ligure e piatti di mare a due passi dal Porto Antico, in un locale informale pensato per pranzi, cene e tavoli pieni.",
+        hero_mobile_text: "Pizza, cucina ligure e mare nel cuore di Genova.",
         hero_fact_1: "Pizza e cucina ligure",
         hero_fact_2: "Via del Molo 77/79r",
         hero_fact_3: "Pranzo e cena",
@@ -2643,6 +2788,7 @@
         story_text_1: "Nel cuore del Porto Antico, <strong>Molo20 celebra i sapori autentici della tradizione genovese</strong> con ingredienti freschi e ricette tramandate nel tempo.",
         story_text_2: "Pizze artigianali a lunga lievitazione, farinate e piatti liguri raccontano il territorio, insieme al nostro pesto genovese di produzione propria.",
         story_closing: "<strong>Molo20: il sapore della tradizione, a portata di mano.</strong>",
+        story_mobile_text: "Dal Porto Antico portiamo in tavola pizza artigianale, pesto e autentici sapori genovesi.",
         story_cta: "Contattaci",
         story_photo_title: "Via del Molo",
         story_photo_text: "Uno spazio nero pronto per la fotografia del locale, da sostituire quando arriveranno le immagini definitive.",
@@ -2653,7 +2799,7 @@
         reviews_quote_3: "Personale gentile, posizione centrale e una proposta adatta sia al pranzo sia alla cena.",
         reviews_verified: "Cliente verificato",
         reviews_source: "Recensione online",
-        reviews_cta: "Lascia una recensione su Google",
+        reviews_cta: "Lascia un recensione",
         reviews_note: "Ci vogliono solo pochi secondi",
         contact_eyebrow: "Contatti",
         contact_title: "Vieni a trovarci.",
@@ -2679,6 +2825,7 @@
         hero_eyebrow: "In Genoa, in the Molo district",
         hero_title_1: "Molo 2.0",
         hero_text: "Pizza, Ligurian cooking and seafood dishes a few steps from the Porto Antico, in an informal place made for lunches, dinners and lively tables.",
+        hero_mobile_text: "Pizza, Ligurian cooking and seafood in the heart of Genoa.",
         hero_fact_1: "Pizza and Ligurian cooking",
         hero_fact_2: "Via del Molo 77/79r",
         hero_fact_3: "Lunch and dinner",
@@ -2705,6 +2852,7 @@
         story_text_1: "In the heart of the Porto Antico, <strong>Molo20 celebrates authentic Genoese flavours</strong> with fresh ingredients and time-honoured recipes.",
         story_text_2: "Long-proved artisan pizzas, farinata and Ligurian dishes tell the story of our region, together with our own Genoese pesto.",
         story_closing: "<strong>Molo20: the taste of tradition, close at hand.</strong>",
+        story_mobile_text: "From the Porto Antico, we serve artisan pizza, pesto and authentic Genoese flavours.",
         story_cta: "Contact us",
         story_photo_title: "Via del Molo",
         story_photo_text: "A black space ready for the restaurant photo, to be replaced when the final images arrive.",
@@ -2715,7 +2863,7 @@
         reviews_quote_3: "Kind staff, central location and a proposal suited to both lunch and dinner.",
         reviews_verified: "Verified customer",
         reviews_source: "Online review",
-        reviews_cta: "Leave a Google review",
+        reviews_cta: "Leave a review",
         reviews_note: "It only takes a few seconds",
         contact_eyebrow: "Contacts",
         contact_title: "Come and visit us.",
