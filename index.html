@@ -515,11 +515,13 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 12px;
+      min-width: 0;
     }
 
     .field {
       display: grid;
       gap: 8px;
+      min-width: 0;
     }
 
     .field label {
@@ -559,6 +561,10 @@
 
     input[type="date"],
     input[type="time"] {
+      display: block;
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
       color-scheme: dark;
     }
 
@@ -1797,6 +1803,11 @@
       .hero-call-cta { width: auto; }
       .hero-call-cta .hero-booking-cta { width: auto; min-width: 190px; flex: 0 0 auto; }
       .booking-sheet-dialog { padding: 52px 20px 22px; }
+      .booking-form,
+      .booking-form .field-grid,
+      .booking-form .field,
+      .booking-form input,
+      .booking-form textarea { width: 100%; min-width: 0; max-width: 100%; }
       .proposal-card { flex-basis: 84vw; }
       .proposal-card:nth-child(even) { padding-top: 24px; }
       .story-photo-card { min-height: 0; aspect-ratio: 4 / 3; }
